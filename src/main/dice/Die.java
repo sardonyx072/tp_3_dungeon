@@ -26,9 +26,7 @@ public abstract class Die implements Rollable, Comparable<Die> {
 	protected int[] values;
 	protected int value;
 	public Die(int[] values) {
-		if (IntStream.of(values).anyMatch(i -> i<0))
-			throw new IllegalArgumentException("Dice cannot roll negative numbers or have negative chance to roll numbers");
-		this.values = values == null || values.length == 0 ? new int[] {0} : values;
+		this.values = values == null || values.length == 0 || IntStream.of(values).anyMatch(i -> i<0) ? new int[] {0} : values;
 		this.value = this.values.length-1;
 	}
 	public int compareTo(Die that) {return this.getValue()-that.getValue();}

@@ -8,7 +8,7 @@ public class RandomDie extends Die {
 		super(values);
 	}
 	public void roll() {
-		int roll = ThreadLocalRandom.current().nextInt(1,IntStream.of(this.values).sum()+1);
+		int roll = IntStream.of(this.values).sum() > 0 ? ThreadLocalRandom.current().nextInt(1,IntStream.of(this.values).sum()+1) : 0;
 		int sum = 0;
 		for (int i = 0; i < this.values.length; i++) {
 			sum+=this.values[i];
