@@ -7,11 +7,12 @@ import main.Effect;
 
 public class Armor extends Item {
 	public static enum Archetype {
-		UNARMORED("Unarmored",Armor.Type.UNARMORED,10,-100,100,new Attribute[] {},0,0),
-		LEATHER("Leather",Armor.Type.LIGHT,10,-100,100,new Attribute[] {},10,25),
-		HIDE("Hide",Armor.Type.MEDIUM,10,-100,2,new Attribute[] {},45,100), 
-		CHAINMAIL("Chain Mail",Armor.Type.HEAVY,10,0,0,new Attribute[] {Armor.Attribute.NOISY},60,500),
-		PLATE("Plate",Armor.Type.HEAVY,18,0,0,new Attribute[] {Armor.Attribute.BULKY,Armor.Attribute.CLUMSY,Armor.Attribute.NOISY},100,1500);
+		//archetype name                  type      base mindexmod maxdexmod attributes                                                          wight, cost
+		UNARMORED("Unarmored", Armor.Type.UNARMORED,10,  -100,     100,      new Attribute[] {},                                                 0,     0),
+		LEATHER(  "Leather",   Armor.Type.LIGHT,    11,  -100,     100,      new Attribute[] {},                                                 10,    25),
+		HIDE(     "Hide",      Armor.Type.MEDIUM,   13,  -100,     2,        new Attribute[] {},                                                 45,    100), 
+		CHAINMAIL("Chain Mail",Armor.Type.HEAVY,    15,  0,        0,        new Attribute[] {Armor.Attribute.GAUCHE},                           60,    500),
+		PLATE(    "Plate",     Armor.Type.HEAVY,    18,  0,        0,        new Attribute[] {Armor.Attribute.CUMBERSOME,Armor.Attribute.GAUCHE},100,   1500);
 		private String name;
 		private int base, dexModMin, dexModMax, weight, cost;
 		private Type type;
@@ -34,18 +35,19 @@ public class Armor extends Item {
 		public int getCost() {return this.cost;}
 		public Type getType() {return this.type;}
 		public Attribute[] getAttributes() {return this.attributes;}
+		public Armor create() {return new Armor(this,null,null,null,null,null,null,null,null,null);}
 	}
 	public static enum Type {
 		UNARMORED,
+		NATURAL,
 		LIGHT,
 		MEDIUM,
 		HEAVY,
 		EXOTIC;
 	}
 	public static enum Attribute {
-		BULKY, //strength requirement
-		CLUMSY, //disadvantage dex saves
-		NOISY; //disadvantage dex checks
+		CUMBERSOME,
+		GAUCHE; //disadvantage dex checks
 	}
 	private String archetypeName, name;
 	private Type type;

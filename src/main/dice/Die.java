@@ -6,6 +6,9 @@ import java.util.stream.IntStream;
 
 public abstract class Die implements Rollable, Comparable<Die> {
 	public static enum Type {
+		D1  (1),
+		D2  (2),
+		D3  (3),
 		D4  (4),
 		D6  (6),
 		D8  (8),
