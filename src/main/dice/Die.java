@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.IntStream;
 
-public abstract class Die implements Rollable, Comparable<Die> {
+public abstract class Die implements Rollable, Comparable<Die>, Cloneable {
 	public static enum Type {
 		D1  (1),
 		D2  (2),
@@ -33,4 +33,12 @@ public abstract class Die implements Rollable, Comparable<Die> {
 		this.value = this.values.length-1;
 	}
 	public int compareTo(Die that) {return this.getValue()-that.getValue();}
+	public Die clone() {
+		Die die = null;
+		try {
+			die = getClass().getDeclaredConstructor(int[].class).newInstance(this.values.clone());
+			die.value = this.value;
+		} catch (Exception e) {e.printStackTrace();}
+		return die;
+	}
 }

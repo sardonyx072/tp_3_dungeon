@@ -7,7 +7,7 @@ import main.dice.*;
 
 public class Weapon extends Item {
 	public static enum Archetype {
-		//archetype    name                type              attribute                    score                    damage type 1h damage amount       2h damage amount       range weight cost
+		//archetype    name                  type              attribute                    score                    damage type 1h damage amount       2h damage amount       range weight cost
 		UNARMED(       "Unarmed",       Type.SIMPLE, Attribute.ONE_HANDED,AbilityScore.Type.STRENGTH,    Damage.Type.BLUDGEONING,Die.Type.D1.create(1), Die.Type.D1.create(1), 5,    0,     0),
 		DAGGER(        "Dagger",        Type.SIMPLE, Attribute.ONE_HANDED,AbilityScore.Type.DEXTERITY,   Damage.Type.PIERCING,   Die.Type.D4.create(1), Die.Type.D4.create(1), 15,   0,     0),
 		GREATAXE(      "Greataxe",      Type.MARTIAL,Attribute.TWO_HANDED,AbilityScore.Type.STRENGTH,    Damage.Type.SLASHING,   Die.Type.D12.create(1),Die.Type.D12.create(1),5,    0,     0),
