@@ -54,6 +54,11 @@ public class Creature extends Actor {
 	public int getMaxHP() {return IntStream.of(Arrays.copyOfRange(this.hitdiceRolls,0,this.getLevel())).reduce(0, (sum,i)->sum+i+this.getModifier(AbilityScore.Type.CONSTITUTION));}
 	public int getHP() {return Math.max(0, this.getMaxHP()-this.damage);}
 	public int getTempHP() {return this.temphp;}
+	public void takeDamage(Damage damage) {
+		int amount = damage.getValue(), tempLost = Math.min(amount, this.getTempHP());
+		this.temphp -= tempLost;
+		this.damage += amount-tempLost;
+	}
 	public int getSpeed() {return this.actorRace.getSpeed();}
 	public int getArmorClass() {return this.armor.getBase() + Math.min(this.armor.getDexModMax(), Math.max(this.armor.getDexModMin(), this.getModifier(AbilityScore.Type.DEXTERITY)));}
 	public int getDifficultyClass() {return 8+this.getProficiency()+this.getModifier(this.actorClass.getSaveScore());}
