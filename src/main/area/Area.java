@@ -14,35 +14,10 @@ public class Area {
 		this.links = new HashMap<Point,Area>();
 	}
 	public Point getNext(Point point, Direction direction) {
-		Point next = null;
-		switch(direction) {
-		case NORTH:
-			this.area.get(new Point(point.x,point.y+1));
-			break;
-		case NORTHEAST:
-			this.area.get(new Point(point.x+1,point.y+1));
-			break;
-		case EAST:
-			this.area.get(new Point(point.x+1,point.y));
-			break;
-		case SOUTHEAST:
-			this.area.get(new Point(point.x+1,point.y-1));
-			break;
-		case SOUTH:
-			this.area.get(new Point(point.x,point.y-1));
-			break;
-		case SOUTHWEST:
-			this.area.get(new Point(point.x-1,point.y-1));
-			break;
-		case WEST:
-			this.area.get(new Point(point.x-1,point.y));
-			break;
-		case NORTHWEST:
-			this.area.get(new Point(point.x-1,point.y+1));
-			break;
-		}
-		return next;
+		Point next = new Point(point.x+direction.dx(this.up),point.y+direction.dy(this.up));
+		return this.area.containsKey(next) ? next : null;
 	}
+	public Area getLink(Point point) {return this.links.get(point);}
 	public HashSet<Point> line(Point point, Direction direction, int width, int length, boolean includeOrigin) {
 		HashSet<Point> points = new HashSet<Point>();
 		if (includeOrigin)
