@@ -6,6 +6,7 @@ import java.util.HashMap;
 import java.util.HashSet;
 
 public class Area {
+	private static MovementType DEFAULT_MOVEMENT_TYPE = MovementType.NORMAL;
 	protected Direction up;
 	protected HashMap<Point,BackdropElement> area;
 	protected HashMap<Point,Area> links;
@@ -15,7 +16,7 @@ public class Area {
 		this.links = new HashMap<Point,Area>();
 		for (int y = bound.y; y < bound.height; y++)
 			for (int x = bound.x; x < bound.width; x++)
-				this.area.put(new Point(x,y), new BackdropElement(true));
+				this.area.put(new Point(x,y), new BackdropElement(DEFAULT_MOVEMENT_TYPE));
 	}
 	public Rectangle getBounds() {
 		int xmin, xmax, ymin, ymax;
@@ -31,7 +32,7 @@ public class Area {
 			bound.add(point);
 			for (int y = bound.y; y < bound.height; y++)
 				for (int x = bound.x; x < bound.width; x++)
-					this.area.putIfAbsent(new Point(x,y), new BackdropElement(true));
+					this.area.putIfAbsent(new Point(x,y), new BackdropElement(DEFAULT_MOVEMENT_TYPE));
 		}
 		this.area.put(point, element);
 	}
@@ -57,13 +58,17 @@ public class Area {
 	}
 	public HashSet<Point> cone(Point point, Direction direction, int length, boolean includeOrigin, boolean includeNonTraversible, boolean includeNull, boolean forceLimit) {
 		HashSet<Point> points = new HashSet<Point>();
-		boolean include = (includeOrigin) && (includeNull || this.area.containsKey(point)) && (includeNonTraversible || this.area.get(point).isTraversible());
-		if (include || forceLimit) {
-			if (include)
+		Point point2 = this.getNext(point, direction);
+		boolean include1 = (includeOrigin) && (includeNull || this.area.containsKey(point)) && (includeNonTraversible || this.area.get(point).isTraversible());
+		boolean include2 = (includeNull || this.area.containsKey(point2)) && (includeNonTraversible || this.area.get(point2).isTraversible());
+		if (include1 || include2 || forceLimit) {
+			if (include1)
 				points.add(point);
-			points.addAll(this.cone(this.getNext(point, direction.next45DegreesCounterclockwise()), direction, length-1, true, includeNonTraversible, includeNull, forceLimit));
-			points.addAll(this.cone(this.getNext(point, direction), direction, length-1, true, includeNonTraversible, includeNull, forceLimit));
-			points.addAll(this.cone(this.getNext(point, direction.next45DegreesClockwise()), direction, length-1, true, includeNonTraversible, includeNull, forceLimit));
+			if (include2)
+				points.add(point2);
+			points.addAll(this.cone(this.getNext(point2, direction.next45DegreesCounterclockwise()), direction, length-1, true, includeNonTraversible, includeNull, forceLimit));
+			points.addAll(this.cone(this.getNext(point2, direction), direction, length-1, true, includeNonTraversible, includeNull, forceLimit));
+			points.addAll(this.cone(this.getNext(point2, direction.next45DegreesClockwise()), direction, length-1, true, includeNonTraversible, includeNull, forceLimit));
 		}
 		return points;
 	}
