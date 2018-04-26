@@ -49,7 +49,12 @@ public class Area {
 	}
 	public HashSet<Point> radius(Point point, int length, boolean includeOrigin, boolean includeNonTraversible, boolean includeNull) {
 		HashSet<Point> points = new HashSet<Point>();
-		
+		Point temp = point;
+		for (int i = 0; i < length; i++)
+			temp = this.getNext(temp, this.up);
+		for (Point p : this.line(temp, this.up.next90DegreesClockwise().next90DegreesClockwise(), length*2, length*2, true, true, true, true))
+			if ((includeNull || this.area.containsKey(p)) && (Math.pow(Math.abs(point.x-p.x),2)+Math.pow(Math.abs(point.y-p.y),2) <= Math.pow(length+0.5,2)) && (includeOrigin || !p.equals(point)) && (includeNonTraversible || this.area.get(p).isTraversible()))
+				points.add(p);
 		return points;
 	}
 }
