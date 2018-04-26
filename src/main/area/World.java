@@ -7,6 +7,7 @@ import java.util.Arrays;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
+import java.util.concurrent.ThreadLocalRandom;
 
 import main.actor.Actor;
 
@@ -58,7 +59,9 @@ public class World extends Area {
 	}
 	public HashSet<Actor> randomActorsInArea(HashSet<Point> area, int n) {
 		HashSet<Actor> actors = new HashSet<Actor>();
-		// roll a die?
+		List<Actor> list = new ArrayList<Actor>(this.allActorsInArea(area));
+		for (int i = 0; i < n; i++)
+			actors.add(list.remove(ThreadLocalRandom.current().nextInt(0,list.size())));
 		return actors;
 	}
 }

@@ -9,14 +9,33 @@ public class Area {
 	protected Direction up;
 	protected HashMap<Point,BackdropElement> area;
 	protected HashMap<Point,Area> links;
-	public Area(Rectangle size) {
+	public Area(Rectangle bound) {
 		this.up = Direction.NORTH;
 		this.area = new HashMap<Point,BackdropElement>();
 		this.links = new HashMap<Point,Area>();
+		for (int y = bound.y; y < bound.height; y++)
+			for (int x = bound.x; x < bound.width; x++)
+				this.area.put(new Point(x,y), new BackdropElement(true));
 	}
-	public Point getNext(Point point, Direction direction) {
-		return new Point(point.x+direction.dx(this.up),point.y+direction.dy(this.up));
+	public Rectangle getBounds() {
+		int xmin, xmax, ymin, ymax;
+		xmin = this.area.keySet().stream().mapToInt(point -> point.x).min().getAsInt();
+		xmax = this.area.keySet().stream().mapToInt(point -> point.x).max().getAsInt();
+		ymin = this.area.keySet().stream().mapToInt(point -> point.y).min().getAsInt();
+		ymax = this.area.keySet().stream().mapToInt(point -> point.y).max().getAsInt();
+		return new Rectangle(xmin,ymin,xmax-xmin,ymax-ymin);
 	}
+	public void putBackdropElement(Point point, BackdropElement element) {
+		Rectangle bound = this.getBounds();
+		if (!bound.contains(point)) {
+			bound.add(point);
+			for (int y = bound.y; y < bound.height; y++)
+				for (int x = bound.x; x < bound.width; x++)
+					this.area.putIfAbsent(new Point(x,y), new BackdropElement(true));
+		}
+		this.area.put(point, element);
+	}
+	public Point getNext(Point point, Direction direction) {return new Point(point.x+direction.dx(this.up),point.y+direction.dy(this.up));}
 	public Area getLink(Point point) {return this.links.get(point);}
 	public HashSet<Point> line(Point point, Direction direction, int width, int length, boolean includeOrigin, boolean includeNonTraversible, boolean includeNull, boolean forceLimit) {
 		HashSet<Point> points = new HashSet<Point>();
