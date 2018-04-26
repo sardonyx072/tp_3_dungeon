@@ -1,8 +1,8 @@
 package main.area;
 
-public class Setpiece {
+public class BackdropElement {
 	private boolean traversible;
-	public Setpiece (boolean traversible) {
+	public BackdropElement (boolean traversible) {
 		this.traversible = traversible;
 	}
 	public boolean isTraversible() {return this.traversible;}

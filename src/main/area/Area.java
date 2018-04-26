@@ -1,16 +1,17 @@
 package main.area;
 
 import java.awt.Point;
+import java.awt.Rectangle;
 import java.util.HashMap;
 import java.util.HashSet;
 
 public class Area {
-	private Direction up;
-	private HashMap<Point,Setpiece> area;
-	private HashMap<Point,Area> links;
-	public Area() {
+	protected Direction up;
+	protected HashMap<Point,BackdropElement> area;
+	protected HashMap<Point,Area> links;
+	public Area(Rectangle size) {
 		this.up = Direction.NORTH;
-		this.area = new HashMap<Point,Setpiece>();
+		this.area = new HashMap<Point,BackdropElement>();
 		this.links = new HashMap<Point,Area>();
 	}
 	public Point getNext(Point point, Direction direction) {
