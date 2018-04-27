@@ -20,6 +20,14 @@ public class World extends Area {
 	public Actor getActor(Point point) {
 		return this.actors.get(point);
 	}
+	public void putActor(Actor actor, Point point) {
+		this.actors.putIfAbsent(point, actor);
+	}
+	public void moveActor(Point point, Direction direction) {
+		Point next = this.getNext(point, direction);
+		if (this.actors.get(point) != null && this.actors.get(next) == null)
+			this.actors.put(next, this.actors.remove(point));
+	}
 	public HashSet<Actor> allActorsInArea(HashSet<Point> area) {
 		HashSet<Actor> actors = new HashSet<Actor>();
 		for (Point point : area)

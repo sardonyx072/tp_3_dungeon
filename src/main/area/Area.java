@@ -6,7 +6,8 @@ import java.util.HashMap;
 import java.util.HashSet;
 
 public class Area {
-	private static MovementType DEFAULT_MOVEMENT_TYPE = MovementType.NORMAL;
+	private static final MovementType DEFAULT_MOVEMENT_TYPE = MovementType.NORMAL;
+	public static final int SCALE = 5;
 	protected Direction up;
 	protected HashMap<Point,BackdropElement> area;
 	protected HashMap<Point,Area> links;

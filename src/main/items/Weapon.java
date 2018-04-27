@@ -25,6 +25,7 @@ public class Weapon extends Item {
 		private String name;
 		private Type type;
 		private Attribute attribute;
+		private AbilityScore.Type score;
 		private Damage.Type damageType;
 		private Dice damage1H, damage2H;
 		private int range;
@@ -33,6 +34,7 @@ public class Weapon extends Item {
 			this.name = name;
 			this.type = type;
 			this.attribute = attribute;
+			this.score = score;
 			this.damageType = damageType;
 			this.damage1H = damage1H;
 			this.damage2H = damage2H;
@@ -43,6 +45,7 @@ public class Weapon extends Item {
 		public String getName() {return this.name;}
 		public Type getType() {return this.type;}
 		public Attribute getAttribute() {return this.attribute;}
+		public AbilityScore.Type getScore() {return this.score;}
 		public Damage get1HDamage() {return new Damage(this.damageType,this.damage1H);}
 		public Damage get2HDamage() {return new Damage(this.damageType,this.damage2H);}
 		public int getRange() {return this.range;}
@@ -65,6 +68,7 @@ public class Weapon extends Item {
 	private String archetypeName;
 	private Type type;
 	private Attribute attribute;
+	private AbilityScore.Type score;
 	private Damage damage1H, damage2H;
 	private int range;
 	public Weapon (Archetype archetype, String overrideName, Type overrideType, Attribute overrideAttribute, AbilityScore.Type overrideScore, Damage override1HDamage, Damage override2HDamage, Integer overrideRange, Integer overrideWeight, Integer overrideCost, Effect[] effects) {
@@ -72,6 +76,7 @@ public class Weapon extends Item {
 		this.archetypeName = archetype.getName();
 		this.type = overrideType != null ? overrideType : archetype.getType();
 		this.attribute = overrideAttribute != null ? overrideAttribute : archetype.getAttribute();
+		this.score = overrideScore != null ? overrideScore : archetype.getScore();
 		this.damage1H = override1HDamage != null ? override1HDamage : archetype.get1HDamage();
 		this.damage2H = override2HDamage != null ? override2HDamage : archetype.get2HDamage();
 		this.range = overrideRange != null ? overrideRange : archetype.getRange();
@@ -79,6 +84,7 @@ public class Weapon extends Item {
 	public String getArchetypeName() {return this.archetypeName;}
 	public Type getType() {return this.type;}
 	public Attribute getAttributes() {return this.attribute;}
+	public AbilityScore.Type getScore() {return this.score;}
 	public Damage get1HDamage() {return this.damage1H;}
 	public Damage get2HDamage() {return this.damage2H;}
 	public int getRange() {return this.range;}
