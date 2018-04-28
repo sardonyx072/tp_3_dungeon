@@ -7,7 +7,7 @@ public abstract class Save extends Roll {
 		NOTHING,
 		HALF_DAMAGE;
 	}
-	public Save (Actor origin, Type type, AbilityScore.Type saveType, Dice dice) {
+	public Save (Actor origin, Type type, Score.Type saveType, Dice dice) {
 		super(origin, type, saveType, dice);
 	}
 }

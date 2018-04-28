@@ -16,9 +16,9 @@ public abstract class Roll implements Rollable {
 	}
 	protected Actor origin;
 	protected Type type;
-	protected AbilityScore.Type score;
+	protected Score.Type score;
 	protected Dice dice;
-	public Roll (Actor origin, Type type, AbilityScore.Type score, Dice dice) {
+	public Roll (Actor origin, Type type, Score.Type score, Dice dice) {
 		this.origin = origin;
 		this.type = type;
 		this.score = score;

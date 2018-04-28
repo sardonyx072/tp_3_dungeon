@@ -16,7 +16,7 @@ import main.items.Weapon;
 public class Actor {
 	private CreatureRace actorRace;
 	private CreatureClass actorClass;
-	private HashMap<AbilityScore.Type, AbilityScore> scores;
+	private HashMap<Score.Type, Score> scores;
 	private static final int MAX_LEVEL = 20;
 	private int level, damage, temphp;
 	private int[] hitdiceRolls;
@@ -24,7 +24,7 @@ public class Actor {
 	private Weapon mainHand, offHand;
 	private Accessory accessory1, accessory2, accessory3;
 	private List<Item> inventory;
-	public Actor(CreatureRace actorRace, CreatureClass actorClass, HashMap<AbilityScore.Type,AbilityScore> scores) {
+	public Actor(CreatureRace actorRace, CreatureClass actorClass, HashMap<Score.Type,Score> scores) {
 		this.actorRace = actorRace;
 		this.actorClass = actorClass;
 		this.hitdiceRolls = new int[MAX_LEVEL];
@@ -33,9 +33,9 @@ public class Actor {
 			dice.roll();
 			this.hitdiceRolls[i] = dice.getValue();
 		}
-		this.scores = new HashMap<AbilityScore.Type,AbilityScore>();
-		for(AbilityScore.Type type : AbilityScore.Type.values())
-			this.scores.put(type,new AbilityScore(type,scores.get(type).getValue()+Optional.ofNullable(this.actorRace.getScoreIncreases().get(type)).orElse(0)));
+		this.scores = new HashMap<Score.Type,Score>();
+		for(Score.Type type : Score.Type.values())
+			this.scores.put(type,new Score(type,scores.get(type).getValue()+Optional.ofNullable(this.actorRace.getScoreIncreases().get(type)).orElse(0)));
 		this.armor = Armor.Archetype.UNARMORED.create();
 		this.mainHand = null;
 		this.offHand = null;
@@ -49,9 +49,9 @@ public class Actor {
 	public int getLevel() {return this.level;}
 	public void levelUp() {this.level++;}
 	public int getProficiency() {return (this.getLevel()/4)+2;}
-	public int getScore(AbilityScore.Type type) {return this.scores.get(type).getValue();}
-	public int getModifier(AbilityScore.Type type) {return this.scores.get(type).getModifier();}
-	public int getMaxHP() {return IntStream.of(Arrays.copyOfRange(this.hitdiceRolls,0,this.getLevel())).reduce(0, (sum,i)->sum+i+this.getModifier(AbilityScore.Type.CONSTITUTION));}
+	public int getScore(Score.Type type) {return this.scores.get(type).getValue();}
+	public int getModifier(Score.Type type) {return this.scores.get(type).getModifier();}
+	public int getMaxHP() {return IntStream.of(Arrays.copyOfRange(this.hitdiceRolls,0,this.getLevel())).reduce(0, (sum,i)->sum+i+this.getModifier(Score.Type.CONSTITUTION));}
 	public int getHP() {return Math.max(0, this.getMaxHP()-this.damage);}
 	public int getTempHP() {return this.temphp;}
 	public void takeDamage(Damage damage) {
@@ -60,11 +60,11 @@ public class Actor {
 		this.damage += amount-tempLost;
 	}
 	public int getSpeed() {return this.actorRace.getSpeed();}
-	public int getArmorClass() {return this.armor.getBase() + Math.min(this.armor.getDexModMax(), Math.max(this.armor.getDexModMin(), this.getModifier(AbilityScore.Type.DEXTERITY)));}
+	public int getArmorClass() {return this.armor.getBase() + Math.min(this.armor.getDexModMax(), Math.max(this.armor.getDexModMin(), this.getModifier(Score.Type.DEXTERITY)));}
 	public int getDifficultyClass() {return 8+this.getProficiency()+this.getModifier(this.actorClass.getSaveScore());}
-	public int getAttackModifier(AbilityScore.Type type) {return this.getModifier(type) + (Arrays.asList(this.actorClass.getAttackProficiencies()).contains(type) ? this.getProficiency() : 0);}
-	public int getSaveModifier(AbilityScore.Type type) {return this.getModifier(type) + (Arrays.asList(this.actorClass.getSaveProficiencies()).contains(type) ? this.getProficiency() : 0);}
-	public int getCheckModifier(AbilityScore.Type type) {return this.getModifier(type) + (Arrays.asList(this.actorClass.getCheckProficiencies()).contains(type) ? this.getProficiency() : 0);}
+	public int getAttackModifier(Score.Type type) {return this.getModifier(type) + (Arrays.asList(this.actorClass.getAttackProficiencies()).contains(type) ? this.getProficiency() : 0);}
+	public int getSaveModifier(Score.Type type) {return this.getModifier(type) + (Arrays.asList(this.actorClass.getSaveProficiencies()).contains(type) ? this.getProficiency() : 0);}
+	public int getCheckModifier(Score.Type type) {return this.getModifier(type) + (Arrays.asList(this.actorClass.getCheckProficiencies()).contains(type) ? this.getProficiency() : 0);}
 	public Armor getArmor() {return this.armor;}
 	public void equipArmor(Armor armor) {this.armor = this.armor==null && Arrays.asList(this.actorClass.getArmorTypes()).contains(armor.getType()) ? armor : this.armor;}
 	public Armor unequipArmor() {
