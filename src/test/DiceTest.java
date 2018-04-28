@@ -33,7 +33,7 @@ public class DiceTest {
 		Dice dice;
 		Die die;
 		die = new SimDie(null);
-		int rolls = 100000, i = 0;
+		int rolls = 1000, i = 0;
 		do {
 			assertEquals("null param initialized die to always roll 0",0,die.getValue());
 			die.roll();
@@ -189,7 +189,7 @@ public class DiceTest {
 	public void testRolls() {
 		Die die;
 		int[] values;
-		int rolls = 100000;
+		int rolls = 10000;
 		values = new int[] {0,1,0,2,2,Integer.MAX_VALUE,10,4,3,2,1,0,9}; 
 		die = new SimDie(values);
 		for (int j = 0; j < rolls; j++)
@@ -221,7 +221,7 @@ public class DiceTest {
 			die.roll();
 			assertTrue("correct value",2 <= die.getValue() && die.getValue() <= 3);
 		}
-		values = new int[] {0, 0, 0, 5, 1, 0, 999, 11, 0};
+		values = new int[] {0, 0, 0, 5, 1, 0, 50, 11, 0};
 		int[] count;
 		die = new RandomDie(values);
 		for (int j = 0; j < rolls; j++) {
@@ -264,12 +264,12 @@ public class DiceTest {
 	
 	@Test
 	public void testCreateDiceFromArchetypes() {
-		int rolls = 10000000;
+		int rolls = 100000;
 		int[] count;
 		Dice dice;
 		Die.Type[] types = new Die.Type[] {Die.Type.D4, Die.Type.D6, Die.Type.D8, Die.Type.D10, Die.Type.D12, Die.Type.D20, Die.Type.D100};
 		int[] max = new int[] {            4,           6,           8,           10,           12,           20,           100};
-		int[] nums = new int[] {-1, 0, 1, 2, 10};
+		int[] nums = new int[] {-1, 0, 1, 2};
 		for (int j = 0; j < types.length; j++) {
 			for (int num : nums) {
 				dice = types[j].create(num);
