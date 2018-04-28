@@ -2,6 +2,12 @@ package main.area;
 
 import java.awt.Point;
 import java.awt.Rectangle;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
@@ -22,6 +28,15 @@ public class World extends Area {
 	}
 	public void putActor(Actor actor, Point point) {
 		this.actors.putIfAbsent(point, actor);
+	}
+	public Point locationOfActor(Actor actor) {
+		//System.out.println("searching for " + actor.getID());
+		for (Point point : this.actors.keySet()) {
+			//System.out.println("\tfound " + this.actors.get(point).getID());
+			if (actor.equals(this.actors.get(point)))
+				return point;
+		}
+		return null;
 	}
 	public void moveActor(Point point, Direction direction) {
 		Point next = this.getNext(point, direction);
@@ -58,9 +73,15 @@ public class World extends Area {
 		for (Point point : area)
 			if (this.actors.containsKey(point))
 				temps.add(new Temp(this.actors.get(point),Math.pow(Math.abs(point.x-origin.x),2)+Math.pow(Math.abs(point.y-origin.y),2)));
+		System.out.println("origin checking for actors " + origin);
+		System.out.println("area checking for actors " + Arrays.toString(area.toArray()));
+		System.out.println("actors found " + Arrays.toString(temps.toArray()));
 		Temp[] temps2 = temps.toArray(new Temp[temps.size()]);
+		System.out.println("actors found " + Arrays.toString(temps2));
 		Arrays.sort(temps2);
+		System.out.println("actors found " + Arrays.toString(temps2));
 		temps2 = Arrays.copyOfRange(temps2, 0, n);
+		System.out.println("actors found " + Arrays.toString(temps2));
 		for (Temp t : temps2)
 			actors.add(t.actor);
 		return actors;
@@ -71,5 +92,23 @@ public class World extends Area {
 		for (int i = 0; i < n; i++)
 			actors.add(list.remove(ThreadLocalRandom.current().nextInt(0,list.size())));
 		return actors;
+	}
+	public void save() {
+		try (ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream("./testworld.world"))) {
+			oos.writeObject(this);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
+	public void load() {
+		try (ObjectInputStream ois = new ObjectInputStream(new FileInputStream("./testworld.world"))) {
+			World test = (World) ois.readObject();
+			this.up = test.up;
+			this.area = test.area;
+			this.links = test.links;
+			this.actors = test.actors;
+		} catch (IOException | ClassNotFoundException e) {
+			e.printStackTrace();
+		}
 	}
 }

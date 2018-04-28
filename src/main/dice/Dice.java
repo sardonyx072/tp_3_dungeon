@@ -1,8 +1,10 @@
 package main.dice;
 
+import java.io.Serializable;
 import java.util.Arrays;
 
-public class Dice implements Rollable, Cloneable {
+public class Dice implements Rollable, Cloneable, Serializable {
+	private static final long serialVersionUID = 1024354024436110477L;
 	protected Die[] dice;
 	public Dice(Die[] dice) { //TODO rollable
 		this.dice = dice == null || dice.length == 0 ? new Die[] {new SimDie(new int[] {0})} : dice;

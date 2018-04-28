@@ -1,10 +1,12 @@
 package main.actor;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Optional;
+import java.util.UUID;
 import java.util.stream.IntStream;
 
 import main.dice.Dice;
@@ -13,7 +15,16 @@ import main.items.Armor;
 import main.items.Item;
 import main.items.Weapon;
 
-public class Actor {
+public class Actor implements Serializable {
+	private static final long serialVersionUID = 6889241461449781654L;
+	public enum Allegiance {
+		PARTY,
+		FRIENDLY,
+		NEUTRAL,
+		ENEMY,
+		NONE;
+	}
+	private UUID id;
 	private CreatureRace actorRace;
 	private CreatureClass actorClass;
 	private HashMap<Score.Type, Score> scores;
@@ -24,7 +35,9 @@ public class Actor {
 	private Weapon mainHand, offHand;
 	private Accessory accessory1, accessory2, accessory3;
 	private List<Item> inventory;
+	private Allegiance allegiance;
 	public Actor(CreatureRace actorRace, CreatureClass actorClass, HashMap<Score.Type,Score> scores) {
+		this.id = UUID.randomUUID();
 		this.actorRace = actorRace;
 		this.actorClass = actorClass;
 		this.hitdiceRolls = new int[MAX_LEVEL];
@@ -33,16 +46,19 @@ public class Actor {
 			dice.roll();
 			this.hitdiceRolls[i] = dice.getValue();
 		}
+		this.level = 1;
 		this.scores = new HashMap<Score.Type,Score>();
+		// TODO needs to sort scores for class
 		for(Score.Type type : Score.Type.values())
 			this.scores.put(type,new Score(type,scores.get(type).getValue()+Optional.ofNullable(this.actorRace.getScoreIncreases().get(type)).orElse(0)));
 		this.armor = Armor.Archetype.UNARMORED.create();
-		this.mainHand = null;
-		this.offHand = null;
+		this.mainHand = Weapon.Archetype.UNARMED.create();
+		this.offHand = Weapon.Archetype.UNARMED.create();
 		this.accessory1 = null;
 		this.accessory2 = null;
 		this.accessory3 = null;
 		this.inventory = new ArrayList<Item>();
+		this.allegiance = Allegiance.NEUTRAL;
 	}
 	public CreatureRace getActorRace() {return this.actorRace;}
 	public CreatureClass getActorClass() {return this.actorClass;}
@@ -108,4 +124,16 @@ public class Actor {
 		return accessory;
 	}
 	public List<Item> getInventory() {return this.inventory;}
+	public Allegiance getAllegiance() {return this.allegiance;}
+	public void setAllegiance(Allegiance allegiance) {this.allegiance = allegiance;}
+	public UUID getID() {return this.id;}
+	@Override
+	public boolean equals(Object o) {
+		return this.id.equals(((Actor)o).id);
+	}
+	@Override
+	public int hashCode() {
+		return this.id.hashCode();
+	}
+	public String toString() {return this.actorRace.toString();}
 }

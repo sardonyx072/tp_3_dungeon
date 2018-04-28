@@ -19,4 +19,10 @@ public class RandomDie extends Die {
 		}
 	}
 	public int getValue() {return this.value;}
+	@Override
+	public RandomDie clone() {
+		RandomDie dup = new RandomDie(this.values.clone());
+		dup.value = this.value;
+		return dup;
+	}
 }

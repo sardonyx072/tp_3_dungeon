@@ -62,8 +62,6 @@ public class Armor extends Item {
 		this.dexModMin = overrideDexModMin != null ? overrideDexModMin : archetype.getDexModMin();
 		this.dexModMax = overrideDexModMax != null ? overrideDexModMax : archetype.getDexModMax();
 		this.overrideAttributes = overrideAttributes != null ? overrideAttributes : archetype.getAttributes();
-		List<Effect> tempEffects = Arrays.asList(this.getEffects());
-		this.effects = tempEffects.toArray(new Effect[tempEffects.size()]);
 	}
 	public String getArchetypeName() {return this.archetypeName;}
 	public String getName() {return this.name;}

@@ -1,6 +1,9 @@
 package main.actor;
 
-public class Score {
+import java.io.Serializable;
+
+public class Score implements Serializable {
+	private static final long serialVersionUID = 6663483949696722922L;
 	public static enum Type {
 		STRENGTH,
 		DEXTERITY,

@@ -2,10 +2,12 @@ package main.area;
 
 import java.awt.Point;
 import java.awt.Rectangle;
+import java.io.Serializable;
 import java.util.HashMap;
 import java.util.HashSet;
 
-public class Area {
+public class Area implements Serializable {
+	private static final long serialVersionUID = 1619645851257288154L;
 	private static final MovementType DEFAULT_MOVEMENT_TYPE = MovementType.NORMAL;
 	public static final int SCALE = 5;
 	protected Direction up;
@@ -37,17 +39,22 @@ public class Area {
 		}
 		this.area.put(point, element);
 	}
+	public BackdropElement getBackdrop(Point point) {return this.area.get(point);}
 	public Point getNext(Point point, Direction direction) {return new Point(point.x+direction.dx(this.up),point.y+direction.dy(this.up));}
 	public Area getLink(Point point) {return this.links.get(point);}
+	public HashMap<Point,BackdropElement> getElements() {return this.area;}
 	public HashSet<Point> line(Point point, Direction direction, int width, int length, boolean includeOrigin, boolean includeNonTraversible, boolean includeNull, boolean forceLimit) {
 		HashSet<Point> points = new HashSet<Point>();
 		Point temp = point;
+		System.out.println("TEST " + this.area.get(temp));
 		for (int i = 0; i < length; i++) {
-			if ((includeOrigin || i>0) && (includeNull || this.area.containsKey(point)) && (includeNonTraversible || this.area.get(temp).isTraversible()))
+			System.out.println(this.area.containsKey(temp) + " " + this.area.get(temp).isTraversible());
+			if ((includeOrigin || i>0) && (includeNull || this.area.containsKey(temp)) && (includeNonTraversible || this.area.get(temp).isTraversible()))
 				points.add(temp);
 			else if(!forceLimit)
 				break;
 			temp = this.getNext(temp, direction);
+			System.out.println("checked " + i + " squares getting line");
 		}
 		temp = point;
 		for (int i = 0; i < width/2; i++)

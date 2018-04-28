@@ -6,4 +6,10 @@ public class SimDie extends Die {
 	}
 	public void roll() {this.value = ++this.value == this.values.length ? 0 : this.value;}
 	public int getValue() {return this.values[value];}
+	@Override
+	public SimDie clone() {
+		SimDie dup = new SimDie(this.values.clone());
+		dup.value = this.value;
+		return dup;
+	}
 }

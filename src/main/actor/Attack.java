@@ -2,7 +2,7 @@ package main.actor;
 
 import main.dice.Dice;
 
-public abstract class Attack extends Roll {
+public class Attack extends Roll {
 	protected Damage damage;
 	protected Damage criticalDamage;
 	protected Score.Type saveType;
