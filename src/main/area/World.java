@@ -70,11 +70,11 @@ public class World extends Area {
 			}
 		}
 		List<Temp> temps = new ArrayList<Temp>();
-		for (Point point : area)
+		for (Point point : area) {
+			System.out.println("checking for actors in " + point);
 			if (this.actors.containsKey(point))
 				temps.add(new Temp(this.actors.get(point),Math.pow(Math.abs(point.x-origin.x),2)+Math.pow(Math.abs(point.y-origin.y),2)));
-		System.out.println("origin checking for actors " + origin);
-		System.out.println("area checking for actors " + Arrays.toString(area.toArray()));
+		}
 		System.out.println("actors found " + Arrays.toString(temps.toArray()));
 		Temp[] temps2 = temps.toArray(new Temp[temps.size()]);
 		System.out.println("actors found " + Arrays.toString(temps2));

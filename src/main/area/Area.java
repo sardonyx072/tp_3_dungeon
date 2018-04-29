@@ -46,12 +46,11 @@ public class Area implements Serializable {
 	public HashSet<Point> line(Point point, Direction direction, int width, int length, boolean includeOrigin, boolean includeNonTraversible, boolean includeNull, boolean forceLimit) {
 		HashSet<Point> points = new HashSet<Point>();
 		Point temp = point;
-		System.out.println("TEST " + this.area.get(temp));
 		for (int i = 0; i < length; i++) {
-			System.out.println(this.area.containsKey(temp) + " " + this.area.get(temp).isTraversible());
+			try {System.out.println(this.area.containsKey(temp) + " " + this.area.get(temp).isTraversible());} catch(Exception e) {System.out.println("apparently " + temp + " doesnt exist");}
 			if ((includeOrigin || i>0) && (includeNull || this.area.containsKey(temp)) && (includeNonTraversible || this.area.get(temp).isTraversible()))
 				points.add(temp);
-			else if(!forceLimit)
+			else if(i>0 && !forceLimit)
 				break;
 			temp = this.getNext(temp, direction);
 			System.out.println("checked " + i + " squares getting line");
@@ -62,6 +61,7 @@ public class Area implements Serializable {
 		temp = point;
 		for (int i = 0; i < width/2; i++)
 			points.addAll(this.line(temp = this.getNext(temp, direction.next90DegreesClockwise()), direction, 1, length, true, includeNonTraversible, includeNull, forceLimit));
+		System.out.println("checking points in line returned " + points.size() + " points");
 		return points;
 	}
 	public HashSet<Point> cone(Point point, Direction direction, int length, boolean includeOrigin, boolean includeNonTraversible, boolean includeNull, boolean forceLimit) {
