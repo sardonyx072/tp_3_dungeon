@@ -11,7 +11,7 @@ import main.area.BackdropElement;
 import main.control.Controller;
 
 public class TempDriver {
-	public static void main(String[] args) {
+	public void run() {
 		Interpreter interpreter = new Interpreter();
 		interpreter.act("load");
 		int in = (int)'x', in2 = (int)'x', in3 = (int)'x';
@@ -56,7 +56,7 @@ public class TempDriver {
 			}
 		}
 	}
-	public static void draw(Controller controller) {
+	public void draw(Controller controller) {
 		Rectangle bound = controller.getBounds();
 		List<Actor> actors = new ArrayList<Actor>();
 		for (int y = bound.y; y <= bound.y+bound.height; y++) {
