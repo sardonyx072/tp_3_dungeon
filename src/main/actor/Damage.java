@@ -5,7 +5,7 @@ import java.io.Serializable;
 import main.dice.Dice;
 import main.dice.Rollable;
 
-public class Damage implements Rollable, Cloneable, Serializable {
+public class Damage implements Cloneable, Serializable {
 	private static final long serialVersionUID = -464423475176141679L;
 	public static enum Type {
 		ACID,

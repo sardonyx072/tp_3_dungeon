@@ -3,7 +3,7 @@ package main.actor;
 import main.dice.Dice;
 import main.dice.Rollable;
 
-public abstract class Roll implements Rollable {
+public abstract class Roll {
 	public enum Type {
 		NORMAL (1),
 		ADVANTAGE (1),

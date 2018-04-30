@@ -35,5 +35,6 @@ public abstract class Die implements Rollable, Comparable<Die>, Cloneable, Seria
 		this.value = this.values.length-1;
 	}
 	public int compareTo(Die that) {return this.getValue()-that.getValue();}
+	public Die[] getDie() {return new Die[] {this};}
 	public abstract Die clone();
 }
