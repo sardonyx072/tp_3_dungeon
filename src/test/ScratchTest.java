@@ -4,8 +4,11 @@ import static org.junit.Assert.*;
 
 import java.awt.Point;
 import java.awt.Rectangle;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Optional;
+import java.util.concurrent.ThreadLocalRandom;
+import java.util.stream.IntStream;
 
 import org.junit.Test;
 
@@ -39,6 +42,8 @@ public class ScratchTest {
 		System.out.println(dice1.getDie() == dice2.getDie());
 		for (int i = 0; i < dice1.getDie().length; i++)
 			System.out.println(dice1.getDie()[i] == dice2.getDie()[i]);
+		
+		System.out.println(ThreadLocalRandom.current().nextInt(0,1));
 		
 //		World world = new World(new Rectangle(0,0,50,50));
 //		for (int i = 0; i < 50; i++) {

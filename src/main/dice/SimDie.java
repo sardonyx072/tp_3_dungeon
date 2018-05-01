@@ -1,6 +1,7 @@
 package main.dice;
 
 public class SimDie extends Die {
+	private static final long serialVersionUID = 6384621667113280089L;
 	public SimDie(int[] values) {
 		super(values);
 	}

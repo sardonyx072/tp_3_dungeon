@@ -17,11 +17,6 @@ public class Dice implements Rollable, Cloneable, Serializable {
 		return Arrays.asList(Arrays.copyOfRange(this.dice, n < 0 ? 0 : Math.max(0,this.dice.length - n), n >= 0 ? this.dice.length : Math.min(this.dice.length,Math.abs(n)))).stream().mapToInt(die -> die.getValue()).sum();
 	}
 	public Die[] getDie() {return this.dice.clone();}
-	public Dice clone() {
-//		Die[] dice = new Die[this.dice.length];
-//		for (int i = 0; i < this.dice.length; i++)
-//			dice[i] = this.dice[i].clone();
-//		return new Dice(dice);
-		return new Dice(this.dice.clone());
-	}
+	// public void crunch(); compress random dice into a single random die using convolution
+	public Dice clone() {return new Dice(Stream.of(this.dice).map(die -> die.clone()).toArray(Die[]::new));}
 }

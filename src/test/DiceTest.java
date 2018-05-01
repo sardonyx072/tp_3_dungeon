@@ -8,6 +8,9 @@ import main.dice.*;
 
 public class DiceTest {
 	
+	boolean testRandom = true;
+	int rolls = 1000000;
+	
 	@SuppressWarnings("unused")
 	@Test
 	public void testInheritance() {
@@ -16,16 +19,47 @@ public class DiceTest {
 			Rollable t1 = new SimDie(new int[] {0});
 			Rollable t2 = new RandomDie(new int[] {0});
 			Rollable t3 = new FairRandomDie(1);
-			Die t4 = new SimDie(new int[] {0});
-			Die t5 = new RandomDie(new int[] {0});
-			Die t6 = new FairRandomDie(1);
-			SimDie t7 = new SimDie(new int[] {0});
-			RandomDie t8 = new RandomDie(new int[] {0});
-			RandomDie t9 = new FairRandomDie(1);
-			FairRandomDie t10 = new FairRandomDie(1);
+			Rollable t4 = new Constant(1);
+			Die t5 = new SimDie(new int[] {0});
+			Die t6 = new RandomDie(new int[] {0});
+			Die t7 = new FairRandomDie(1);
+			Die t8 = new Constant(1);
+			SimDie t9 = new SimDie(new int[] {0});
+			RandomDie t10 = new RandomDie(new int[] {0});
+			RandomDie t11 = new FairRandomDie(1);
+			RandomDie t12 = new Constant(1);
+			FairRandomDie t13 = new FairRandomDie(1);
+			Constant t14 = new Constant(1);
 			ok = true;
 		} catch (Exception e) {}
 		assertTrue(ok);
+	}
+	
+	@Test
+	public void testIllegal() {
+		int[][] disallowedArr = new int[][] {{}};
+		int[] disallowedInt = new int[] {};
+		Die[][] disallowedDie = new Die[][] {{}};
+		//simdie
+		disallowedArr = new int[][] {null,{},{-1},{-1,1},{1,-1},{0},{0,0},{0,0,0},{-1,1,-1},{1,-1,1},{1,0,-1},{-1,0,1},{0,1,-1},{0,-1,1},{-1,1,0},{1,-1,0}};
+		for (int[] arr : disallowedArr)
+			assertEquals("die became default value",new SimDie(new int[] {0}),new SimDie(arr));
+		//randomdie
+		disallowedArr = new int[][] {null,{},{-1},{-1,1},{1,-1},{0},{0,0},{0,0,0},{-1,1,-1},{1,-1,1},{1,0,-1},{-1,0,1},{0,1,-1},{0,-1,1},{-1,1,0},{1,-1,0}};
+		for (int[] arr : disallowedArr)
+			assertEquals("die became default value",new SimDie(new int[] {0}),new RandomDie(arr));
+		//fairrandomdie
+		disallowedInt = new int[] {0,-1};
+		for (int i : disallowedInt)
+			assertEquals("die became default value",new SimDie(new int[] {0}),new FairRandomDie(i));
+		//constant
+		disallowedInt = new int[] {0,-1};
+		for (int i : disallowedInt)
+			assertEquals("die became default value",new SimDie(new int[] {0}),new Constant(i));
+		//dice
+		disallowedDie = new Die[][] {null,{}};
+		for (Die[] dice : disallowedDie)
+			assertEquals("dice became default value",new Dice(new SimDie(new int[] {0})), new Dice(dice));
 	}
 	
 	@Test
