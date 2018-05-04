@@ -15,5 +15,8 @@ public class Terrain {
 	public Terrain (Movement movement) {
 		this.movement = movement;
 	}
+	public Terrain (Terrain terrain) {
+		this.movement = terrain.movement;
+	}
 	public int getMovementMultiplier() {return this.movement.getMult();}
 }

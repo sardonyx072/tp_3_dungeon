@@ -60,6 +60,24 @@ public class Actor implements Serializable {
 		this.inventory = new ArrayList<Item>();
 		this.allegiance = Allegiance.NEUTRAL;
 	}
+	public Actor(Actor actor) {
+		this.id = actor.id;
+		this.actorRace = actor.actorRace;
+		this.actorClass = actor.actorClass;
+		this.scores = actor.scores;
+		this.level = actor.level;
+		this.damage = actor.damage;
+		this.temphp = actor.temphp;
+		this.hitdiceRolls = actor.hitdiceRolls;
+		this.armor = actor.armor;
+		this.mainHand = actor.mainHand;
+		this.offHand = actor.offHand;
+		this.accessory1 = actor.accessory1;
+		this.accessory2 = actor.accessory2;
+		this.accessory3 = actor.accessory3;
+		this.inventory = actor.inventory;
+		this.allegiance = actor.allegiance;
+	}
 	public CreatureRace getActorRace() {return this.actorRace;}
 	public CreatureClass getActorClass() {return this.actorClass;}
 	public int getLevel() {return this.level;}
