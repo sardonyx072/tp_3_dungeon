@@ -11,8 +11,6 @@ import java.util.HashMap;
 
 import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
-import javax.swing.JLabel;
-import javax.swing.JOptionPane;
 
 public class Sprite {
 	public static final int WIDTH = 48, HEIGHT = 48;
@@ -28,7 +26,8 @@ public class Sprite {
 		RIGHT_STEP_EAST(2,2),
 		LEFT_STEP_NORTH(3,0),
 		MID_STEP_NORTH(3,1),
-		RIGHT_STEP_NORTH(3,2);
+		RIGHT_STEP_NORTH(3,2),
+		NONE(-1,-1);
 		public int row, col;
 		private Moment(int row, int col) {
 			this.row = row;
@@ -49,17 +48,8 @@ public class Sprite {
 			momentsbmp = new BufferedImage(WIDTH*cols,HEIGHT*rows,BufferedImage.TYPE_INT_RGB);
 			Graphics2D g = momentsbmp.createGraphics();
 			for (int row=0; row<rows; row++)
-				for (int col=0; col<cols; col++) {
-					g.setPaint(new Color(255,53,224));
-					g.fillRect(col*WIDTH + 0, row*HEIGHT + 0, WIDTH/2, HEIGHT/2);
-					g.fillRect(col*WIDTH + WIDTH/2, row*HEIGHT + HEIGHT/2, WIDTH/2, HEIGHT/2);
-					g.setPaint(Color.LIGHT_GRAY);
-					g.fillRect(col*WIDTH + WIDTH/2, row*HEIGHT + 0, WIDTH/2, HEIGHT/2);
-					g.fillRect(col*WIDTH + 0, row*HEIGHT + HEIGHT/2, WIDTH/2, HEIGHT/2);
-					g.setPaint(Color.GRAY);
-					g.drawLine(col*WIDTH + 0, row*HEIGHT + 0, col*WIDTH + WIDTH, row*HEIGHT + 0);
-					g.drawLine(col*WIDTH + 0, row*HEIGHT + 0, col*WIDTH + 0, row*HEIGHT + HEIGHT);
-				}
+				for (int col=0; col<cols; col++)
+					this.drawDefaultIcon(g, col, row);
 		}
 		for (Moment moment : Moment.values()) {
 			ByteArrayOutputStream bytes = new ByteArrayOutputStream();
@@ -68,11 +58,23 @@ public class Sprite {
 			try {
 				ImageIO.write(momentbmp, "PNG", bytes);
 			} catch (IOException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
+				momentbmp = new BufferedImage(WIDTH,HEIGHT,BufferedImage.TYPE_INT_RGB);
+				Graphics2D g = momentsbmp.createGraphics();
+				this.drawDefaultIcon(g, 0, 0);
 			}
 			this.moments.put(moment, new ImageIcon(bytes.toByteArray()));
 		}
+	}
+	private void drawDefaultIcon (Graphics2D g, int col, int row) {
+		g.setPaint(new Color(255,53,224));
+		g.fillRect(col*WIDTH + 0, row*HEIGHT + 0, WIDTH/2, HEIGHT/2);
+		g.fillRect(col*WIDTH + WIDTH/2, row*HEIGHT + HEIGHT/2, WIDTH/2, HEIGHT/2);
+		g.setPaint(Color.LIGHT_GRAY);
+		g.fillRect(col*WIDTH + WIDTH/2, row*HEIGHT + 0, WIDTH/2, HEIGHT/2);
+		g.fillRect(col*WIDTH + 0, row*HEIGHT + HEIGHT/2, WIDTH/2, HEIGHT/2);
+		g.setPaint(Color.GRAY);
+		g.drawLine(col*WIDTH + 0, row*HEIGHT + 0, col*WIDTH + WIDTH, row*HEIGHT + 0);
+		g.drawLine(col*WIDTH + 0, row*HEIGHT + 0, col*WIDTH + 0, row*HEIGHT + HEIGHT);
 	}
 	public String getFileName() {return this.fileName;}
 	public ImageIcon getMoment(Moment moment) {return this.moments.get(moment);}

@@ -12,13 +12,15 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 
+import javax.swing.ImageIcon;
+
 import main.actor.Actor;
 
 public class Area2 {
 	private interface OrientedElement {
 		public Point getLocation();
 	}
-	private class OrientedTerrain extends Terrain implements OrientedElement {
+	public class OrientedTerrain extends Terrain implements OrientedElement {
 		private Point location;
 		private boolean[] openSides;
 		public OrientedTerrain(Terrain terrain, Point location, HashSet<Orientation> openSides) {
@@ -33,7 +35,7 @@ public class Area2 {
 		public boolean isOpenTo(Orientation orientation) {return this.openSides[orientation.ordinal()];}
 		public void setOpenTo(Orientation side, boolean value) {this.openSides[side.ordinal()] = value;}
 	}
-	private class OrientedActor extends Actor implements OrientedElement {
+	public class OrientedActor extends Actor implements OrientedElement {
 		private Point location;
 		private Orientation orientation;
 		public OrientedActor(Actor actor, Point location, Orientation orientation) {
@@ -45,6 +47,7 @@ public class Area2 {
 		public void setLocation(Point location) {this.location = location;}
 		public Orientation getOrientation() {return this.orientation;}
 		public void setOrientation(Orientation orientation) {this.orientation = orientation;}
+		public ImageIcon getAppearance() {return this.getActorRace().getImage(this.getOrientation());}
 	}
 	private Shape shape;
 	private HashMap<Point,OrientedTerrain> terrain;
@@ -172,5 +175,11 @@ public class Area2 {
 		this.actor.get(point).setOrientation(direction);
 		if(this.canMove(point, direction))
 			this.actor.get(point).setLocation(this.getNext(point, direction));
+	}
+	public void addActor(OrientedActor actor, Point point) {
+		this.actor.put(point, actor);
+	}
+	public OrientedActor removeActor(Point point) {
+		return this.actor.get(point);
 	}
 }
