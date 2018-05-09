@@ -1,5 +1,7 @@
 package main.area;
 
+import java.awt.Point;
+
 public enum Orientation {
 	NORTH(0),
 	NORTHEAST(45),
@@ -27,4 +29,6 @@ public enum Orientation {
 	public Orientation nextLeft45() {return this.next(-45);}
 	public Orientation nextLeft90() {return this.next(-90);}
 	public Orientation inverse() {return this.next(180);}
+	public static Orientation nearestOrientation(Point from, Point to) {return Orientation.fromBearing((int)Math.toDegrees(Math.atan2(to.y-from.y, to.x-from.x)));}
+	public static Orientation random() {return Orientation.values()[(int)(Math.random()*Orientation.values().length)];}
 }

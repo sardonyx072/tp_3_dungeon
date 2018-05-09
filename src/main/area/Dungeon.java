@@ -64,20 +64,4 @@ public class Dungeon implements Serializable {
 			this.currentArea = link.toArea;
 		}
 	}
-	public void save(String file) {
-		try (ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(file))) {
-			oos.writeObject(this);
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-	}
-	public void load(String file) {
-		try (ObjectInputStream ois = new ObjectInputStream(new FileInputStream(file))) {
-			Dungeon loaded = (Dungeon) ois.readObject();
-			this.currentArea = loaded.currentArea;
-			this.areas = loaded.areas;
-		} catch (IOException | ClassNotFoundException e) {
-			e.printStackTrace();
-		}
-	}
 }
