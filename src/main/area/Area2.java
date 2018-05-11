@@ -11,6 +11,7 @@ import java.util.Comparator;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
+import java.util.concurrent.ThreadLocalRandom;
 
 import javax.swing.ImageIcon;
 
@@ -80,10 +81,21 @@ public class Area2 {
 					}
 			}
 	}
+	public int getScale() {return this.scale;}
 	public Point getNext(Point point, Orientation orientation) {return new Point(point.x+orientation.dx(),point.y+orientation.dy());}
 	public boolean canMove(Point point, Orientation orientation) {
 		OrientedTerrain to = this.terrain.get(point);
 		return to!=null && to.isOpenTo(orientation) && !this.actor.containsKey(this.getNext(point, orientation));
+	}
+	public Point getRandomUnoccupiedLocation() {
+		int x,y;
+		Point point;
+		do {
+			x = ThreadLocalRandom.current().nextInt(this.shape.getBounds().x, this.shape.getBounds().x + this.shape.getBounds().width);
+			y = ThreadLocalRandom.current().nextInt(this.shape.getBounds().y, this.shape.getBounds().y + this.shape.getBounds().height);
+			point = new Point(x,y);
+		} while(!this.shape.contains(point) || !this.actor.containsKey(point));
+		return point;
 	}
 	public Area2 getLine(Point origin, Orientation direction, int length, int width, boolean includeOrigin) {
 		Shape line = AffineTransform.getRotateInstance(Math.toRadians(direction.getBearing()+180),origin.x+0.5,origin.y+0.5).createTransformedShape(new Rectangle(origin.x-(width/2),origin.y,width,length));
@@ -176,10 +188,19 @@ public class Area2 {
 		if(this.canMove(point, direction))
 			this.actor.get(point).setLocation(this.getNext(point, direction));
 	}
-	public void addActor(OrientedActor actor, Point point) {
-		this.actor.put(point, actor);
+	public void addActor(OrientedActor actor) {
+		this.actor.put(actor.getLocation(), actor);
 	}
 	public OrientedActor removeActor(Point point) {
+		return this.actor.get(point);
+	}
+	public OrientedTerrain getTerrain(Point point) {
+		return this.terrain.get(point);
+	}
+	public void addTerrain(OrientedTerrain terrain) {
+		this.terrain.put(terrain.getLocation(), terrain);
+	}
+	public Area2.OrientedActor getActor(Point point) {
 		return this.actor.get(point);
 	}
 }

@@ -4,6 +4,7 @@ import static org.junit.Assert.*;
 
 import java.awt.Point;
 import java.awt.Rectangle;
+import java.io.File;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Optional;
@@ -12,6 +13,8 @@ import java.util.stream.IntStream;
 
 import org.junit.Test;
 
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
 import main.actor.Actor;
 import main.actor.CreatureClass;
 import main.actor.CreatureRace;

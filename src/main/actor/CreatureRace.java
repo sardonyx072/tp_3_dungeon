@@ -14,7 +14,8 @@ public enum CreatureRace {
 	ELF      (30, new HashMap<Score.Type,Integer>() {{put(Score.Type.DEXTERITY,   1); put(Score.Type.WISDOM,       1);}}, "./src/main/resources/adventurer.png"),
 	DWARF    (25, new HashMap<Score.Type,Integer>() {{put(Score.Type.CONSTITUTION,1); put(Score.Type.INTELLIGENCE, 1);}}, "./src/main/resources/adventurer.png"),
 	HALF_ELF (30, new HashMap<Score.Type,Integer>() {{put(Score.Type.WISDOM,      1); put(Score.Type.CHARISMA,     1);}}, "./src/main/resources/adventurer.png"),
-	SKELETON (25, new HashMap<Score.Type,Integer>() {{put(Score.Type.DEXTERITY,   1); put(Score.Type.CONSTITUTION, 1);}}, "./src/main/resources/skeleton.png");
+	SKELETON (25, new HashMap<Score.Type,Integer>() {{put(Score.Type.DEXTERITY,   1); put(Score.Type.CONSTITUTION, 1);}}, "./src/main/resources/skeleton.png"),
+	VAMPIRE  (30, new HashMap<Score.Type,Integer>() {{put(Score.Type.STRENGTH,1);put(Score.Type.DEXTERITY,1);put(Score.Type.CONSTITUTION,1);put(Score.Type.INTELLIGENCE,1);put(Score.Type.WISDOM,1);put(Score.Type.CHARISMA,1);}}, "./src/main/resources/vampire.png");
 	private int speed;
 	private Sprite sprite;
 	private HashMap<Score.Type,Integer> scoreIncreases;
@@ -29,12 +30,16 @@ public enum CreatureRace {
 		Sprite.Moment moment = null;
 		switch(orientation) {
 		case NORTH:
+		case NORTHEAST:
+		case NORTHWEST:
 			moment = Sprite.Moment.MID_STEP_NORTH;
 			break;
 		case EAST:
 			moment = Sprite.Moment.MID_STEP_EAST;
 			break;
 		case SOUTH:
+		case SOUTHEAST:
+		case SOUTHWEST:
 			moment = Sprite.Moment.MID_STEP_SOUTH;
 			break;
 		case WEST:

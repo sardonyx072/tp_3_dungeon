@@ -9,6 +9,7 @@ import main.actor.CreatureClass;
 import main.actor.CreatureRace;
 import main.actor.Damage;
 import main.actor.Score;
+import main.actor.Sprite;
 import main.dice.Die;
 import main.items.Armor;
 import main.items.Weapon;

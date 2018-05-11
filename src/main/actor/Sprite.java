@@ -54,7 +54,13 @@ public class Sprite {
 		for (Moment moment : Moment.values()) {
 			ByteArrayOutputStream bytes = new ByteArrayOutputStream();
 			BufferedImage momentbmp = null;
-			momentbmp = momentsbmp.getSubimage(moment.col*WIDTH, moment.row*HEIGHT, WIDTH, HEIGHT);
+			if (moment != Moment.NONE)
+				momentbmp = momentsbmp.getSubimage(moment.col*WIDTH, moment.row*HEIGHT, WIDTH, HEIGHT);
+			else {
+				momentbmp = new BufferedImage(WIDTH,HEIGHT,BufferedImage.TYPE_INT_RGB);
+				Graphics2D g = momentbmp.createGraphics();
+				this.drawDefaultIcon(g, 0, 0);
+			}
 			try {
 				ImageIO.write(momentbmp, "PNG", bytes);
 			} catch (IOException e) {

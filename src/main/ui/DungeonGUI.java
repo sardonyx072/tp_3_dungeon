@@ -93,6 +93,15 @@ public class DungeonGUI {
 				test2.paintIcon(this, g2, 2*SQ_WIDTH, 0*WIDTH);
 				ImageIcon test3 = new Sprite("./src/main/resources/false.png").getMoment(Sprite.Moment.MID_STEP_SOUTH);
 				test3.paintIcon(this, g2, 3*SQ_WIDTH, 0*WIDTH);
+				ImageIcon test4 = new Sprite("./src/main/resources/vampire.png").getMoment(Sprite.Moment.MID_STEP_SOUTH);
+				test4.paintIcon(this, g2, 4*SQ_WIDTH, 0*WIDTH);
+				
+				//ImageIcon test5 = new Sprite("./src/main/resources/wall.png").getMoment(Sprite.Moment.MID_STEP_SOUTH);
+				ImageIcon test5 = new ImageIcon("./src/main/resources/wall.png");
+				test5.paintIcon(this, g2, 5*SQ_WIDTH, 0*WIDTH);
+				//ImageIcon test6 = new Sprite("./src/main/resources/floor.png").getMoment(Sprite.Moment.MID_STEP_SOUTH);
+				ImageIcon test6 = new ImageIcon("./src/main/resources/floor.png");
+				test6.paintIcon(this, g2, 6*SQ_WIDTH, 0*WIDTH);
 			}
 		};
 		this.dungeon.setBackground(Color.WHITE);

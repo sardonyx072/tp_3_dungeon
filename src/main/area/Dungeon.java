@@ -1,11 +1,6 @@
 package main.area;
 
 import java.awt.Point;
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.ObjectInputStream;
-import java.io.ObjectOutputStream;
 import java.io.Serializable;
 import java.util.Arrays;
 import java.util.HashMap;
@@ -60,8 +55,14 @@ public class Dungeon implements Serializable {
 		AreaLink link = this.currentArea.getLink(point);
 		if (link != null) {
 			Area2.OrientedActor actor = this.currentArea.removeActor(point);
-			link.toArea.addActor(actor, link.toPoint);
-			this.currentArea = link.toArea;
+			if (actor != null) {
+				actor.setLocation(link.toPoint);
+				link.toArea.addActor(actor);
+				this.currentArea = link.toArea;
+			}
 		}
+	}
+	public Terrain getTerrain(Point point) {
+		return this.currentArea.getTerrain(point);
 	}
 }

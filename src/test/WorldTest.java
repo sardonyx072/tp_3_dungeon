@@ -12,6 +12,7 @@ import main.actor.Actor;
 import main.actor.CreatureClass;
 import main.actor.CreatureRace;
 import main.actor.Score;
+import main.actor.Sprite;
 import main.area.Direction;
 import main.area.World;
 
