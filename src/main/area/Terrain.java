@@ -6,6 +6,7 @@ import java.awt.image.BufferedImage;
 import java.util.Optional;
 
 import javax.swing.ImageIcon;
+import javax.swing.JOptionPane;
 
 public class Terrain {
 	public static enum Type {
@@ -41,12 +42,11 @@ public class Terrain {
 	private Movement movement;
 	private ImageIcon image;
 	public Terrain (String name, Type type, Movement overrideMovement, String imageFile) {
-		type = Optional.ofNullable(type).orElse(Type.FLOOR_DIRT);
-		this.name = Optional.ofNullable(name).orElse(type.getName());
-		this.type = type;
-		this.movement = Optional.ofNullable(overrideMovement).orElse(type.getMovement());
+		this.type = Optional.ofNullable(type).orElse(Type.FLOOR_DIRT);
+		this.name = Optional.ofNullable(name).orElse(this.type.getName());
+		this.movement = Optional.ofNullable(overrideMovement).orElse(this.type.getMovement());
 		try {
-			this.image = new ImageIcon(imageFile);
+			this.image = new ImageIcon(Optional.ofNullable(imageFile).orElse(this.type.getImageFile()));
 		} catch (Exception e) {
 			BufferedImage img = new BufferedImage(48,48,BufferedImage.TYPE_INT_RGB);
 			Graphics2D g = img.createGraphics();
@@ -61,13 +61,19 @@ public class Terrain {
 			g.drawLine(0, 0, 0, 48);
 			this.image = new ImageIcon(img);
 		}
+		if (this.image == null) {
+			JOptionPane.showMessageDialog(null, "there was a null image");
+		}
 	}
 	public Terrain (Terrain terrain) {
+		this.name = terrain.name;
+		this.type = terrain.type;
 		this.movement = terrain.movement;
+		this.image = terrain.image;
 	}
 	public String getName() {return this.name;}
 	public Type getType() {return this.type;}
 	public int getMovementMultiplier() {return this.movement.getMult();}
 	public ImageIcon getImage() {return this.image;}
-	public boolean equals(Terrain that) {return this.name.equals(that.name) && this.type.equals(that.type) && this.movement.equals(that.movement);}
+	//public boolean equals(Terrain that) {return this.name.equals(that.name) && this.type.equals(that.type) && this.movement.equals(that.movement);}
 }

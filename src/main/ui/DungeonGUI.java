@@ -9,17 +9,26 @@ import javax.swing.*;
 
 import com.sun.glass.events.KeyEvent;
 
+import main.actor.Actor;
 import main.actor.Sprite;
+import main.area.Area2;
+import main.area.Dungeon;
+import main.area.Terrain;
 
 public class DungeonGUI {
 	private static final int SQ_WIDTH = 48, SQ_COUNT = 25, DRAW_WIDTH = SQ_WIDTH*SQ_COUNT;
-	private Interpreter interpreter;
+	private InterpretedController controller;
 	private JFrame window;
 	private JMenuBar bar;
 	private JMenu file;
-	private JMenuItem save, load;
+	private JMenuItem save, load, newg;
 	private JPanel container, dungeon, party;
 	public DungeonGUI() {
+		this.controller = new InterpretedController();
+		this.controller.newGame();
+//		for (int y = this.controller.getCurrentDungeon().getCurrentArea().getShape().getBounds().y; y < 25; y++)
+//			for (int x = this.controller.getCurrentDungeon().getCurrentArea().getShape().getBounds().x; x < 25; x++)
+//				System.out.println(this.controller.getTerrain(new Point(x,y)) == null);
 		this.window = new JFrame();
 		this.window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.window.setTitle("Dungeon");
@@ -42,7 +51,13 @@ public class DungeonGUI {
 				JFileChooser fileChooser = new JFileChooser();
 				if (fileChooser.showSaveDialog(null) == JFileChooser.APPROVE_OPTION) {
 					//interpreter.act("save");
+					try {
+						controller.act("save", fileChooser.getSelectedFile().getCanonicalPath());
+					} catch (Exception e) {
+						e.printStackTrace();
+					}
 				}
+				dungeon.repaint();
 			}}
 		});
 		this.load = new JMenuItem("Load Game");
@@ -61,13 +76,40 @@ public class DungeonGUI {
 				JFileChooser fileChooser = new JFileChooser();
 				if (fileChooser.showSaveDialog(null) == JFileChooser.APPROVE_OPTION) {
 					//interpreter.act("load");
+					try {
+						controller.act("load", fileChooser.getSelectedFile().getCanonicalPath());
+					} catch (Exception e) {
+						e.printStackTrace();
+					}
 				}
+				dungeon.repaint();
+			}}
+		});
+		this.newg = new JMenuItem("New Game");
+		this.newg.getAccessibleContext().setAccessibleDescription("Start a new game.");
+		this.newg.addMouseListener(new MouseListener() {
+			@Override
+			public void mouseClicked(MouseEvent arg0) {}
+			@Override
+			public void mouseEntered(MouseEvent arg0) {}
+			@Override
+			public void mouseExited(MouseEvent arg0) {}
+			@Override
+			public void mousePressed(MouseEvent arg0) {}
+			@Override
+			public void mouseReleased(MouseEvent arg0) { {
+				if (JOptionPane.showConfirmDialog(null, "Are you sure you want to start a new game? Any unsaved progress will be lost.") == JOptionPane.OK_OPTION) {
+					//interpreter.act("load");
+					controller.act("newg");
+				}
+				dungeon.repaint();
 			}}
 		});
 		this.file = new JMenu("File");
 		this.bar = new JMenuBar();
 		this.file.add(this.save);
 		this.file.add(this.load);
+		this.file.add(this.newg);
 		this.bar.add(this.file);
 		this.window.setJMenuBar(this.bar);
 		//this.window.setVisible(true);
@@ -75,33 +117,22 @@ public class DungeonGUI {
 			@Override
 			public void paintComponent(Graphics g) {
 				super.paintComponent(g);
+				System.out.println("repainting dungeon");
 				Graphics2D g2 = (Graphics2D)g;
-				g2.setPaint(Color.GRAY);
-				for (int i = 1; i < SQ_COUNT; i++) {
-					int x = i*SQ_WIDTH;
-					g2.drawLine(x, 0, x, getSize().height);
-				}
-				for (int i = 1; i < SQ_COUNT; i++) {
-					int y = i*SQ_WIDTH;
-					g2.drawLine(0, y, getSize().width, y);
-				}
-				ImageIcon test0 = new Sprite("./src/main/resources/adventurer.png").getMoment(Sprite.Moment.MID_STEP_SOUTH);
-				test0.paintIcon(this, g2, 0*SQ_WIDTH, 0*SQ_WIDTH);
-				ImageIcon test1 = new Sprite("./src/main/resources/skeleton.png").getMoment(Sprite.Moment.MID_STEP_SOUTH);
-				test1.paintIcon(this, g2, 1*SQ_WIDTH, 0*WIDTH);
-				ImageIcon test2 = new Sprite("./src/main/resources/skeleton.png").getMoment(Sprite.Moment.MID_STEP_SOUTH);
-				test2.paintIcon(this, g2, 2*SQ_WIDTH, 0*WIDTH);
-				ImageIcon test3 = new Sprite("./src/main/resources/false.png").getMoment(Sprite.Moment.MID_STEP_SOUTH);
-				test3.paintIcon(this, g2, 3*SQ_WIDTH, 0*WIDTH);
-				ImageIcon test4 = new Sprite("./src/main/resources/vampire.png").getMoment(Sprite.Moment.MID_STEP_SOUTH);
-				test4.paintIcon(this, g2, 4*SQ_WIDTH, 0*WIDTH);
-				
-				//ImageIcon test5 = new Sprite("./src/main/resources/wall.png").getMoment(Sprite.Moment.MID_STEP_SOUTH);
-				ImageIcon test5 = new ImageIcon("./src/main/resources/wall.png");
-				test5.paintIcon(this, g2, 5*SQ_WIDTH, 0*WIDTH);
-				//ImageIcon test6 = new Sprite("./src/main/resources/floor.png").getMoment(Sprite.Moment.MID_STEP_SOUTH);
-				ImageIcon test6 = new ImageIcon("./src/main/resources/floor.png");
-				test6.paintIcon(this, g2, 6*SQ_WIDTH, 0*WIDTH);
+				Area2 area = controller.getCurrentDungeon().getCurrentArea();
+				Rectangle bounds = area.getShape().getBounds();
+				for (int y = bounds.y; y <= bounds.y+bounds.height; y++)
+					for (int x = bounds.x; x <= bounds.x+bounds.width; x++) {
+						Point point = new Point(x,y);
+						Area2.OrientedTerrain terrain = area.getTerrain(point);
+						Area2.OrientedActor actor = area.getActor(point);
+						if (terrain != null) {
+							terrain.getImage().paintIcon(this, g2, x*SQ_WIDTH, y*SQ_WIDTH);
+						}
+						if (actor != null) {
+							actor.getAppearance().paintIcon(this, g2, x*SQ_WIDTH, y*SQ_WIDTH);
+						}
+					}
 			}
 		};
 		this.dungeon.setBackground(Color.WHITE);
@@ -127,6 +158,50 @@ public class DungeonGUI {
 		this.container.add(this.dungeon, constraints);
 		this.container.add(this.party);
 		this.window.add(this.container);
+		this.window.addKeyListener(new KeyListener() {
+			@Override
+			public void keyPressed(java.awt.event.KeyEvent arg0) {
+				switch(arg0.getKeyCode()) {
+				case KeyEvent.VK_W:
+					if(arg0.isShiftDown())
+						controller.act("attackUp");
+					else
+						controller.act("moveUp");
+					break;
+				case KeyEvent.VK_A:
+					if(arg0.isShiftDown())
+						controller.act("attackLeft");
+					else
+						controller.act("moveLeft");
+					break;
+				case KeyEvent.VK_S:
+					if(arg0.isShiftDown())
+						controller.act("attackDown");
+					else
+						controller.act("moveDown");
+					break;
+				case KeyEvent.VK_D:
+					if(arg0.isShiftDown())
+						controller.act("attackRight");
+					else
+						controller.act("moveRight");
+					break;
+				}
+				dungeon.repaint();
+			}
+
+			@Override
+			public void keyReleased(java.awt.event.KeyEvent arg0) {
+				// TODO Auto-generated method stub
+				
+			}
+
+			@Override
+			public void keyTyped(java.awt.event.KeyEvent arg0) {
+				// TODO Auto-generated method stub
+				
+			}
+		});
 		this.window.pack();
 		this.window.setVisible(true);
 	}

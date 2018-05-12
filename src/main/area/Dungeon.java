@@ -62,7 +62,10 @@ public class Dungeon implements Serializable {
 			}
 		}
 	}
-	public Terrain getTerrain(Point point) {
+	public Area2.OrientedTerrain getTerrain(Point point) {
 		return this.currentArea.getTerrain(point);
+	}
+	public Area2.OrientedActor getActor(Point point) {
+		return this.currentArea.getActor(point);
 	}
 }

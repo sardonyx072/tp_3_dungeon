@@ -9,16 +9,19 @@ import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.stream.Collectors;
 
 import main.actor.Actor;
 import main.actor.Attack;
+import main.actor.Check;
 import main.actor.CreatureClass;
 import main.actor.CreatureRace;
 import main.actor.Damage;
 import main.actor.Roll;
 import main.actor.Score;
+import main.actor.Roll.Type;
 import main.area.Area2;
 import main.area.Dungeon;
 import main.area.Orientation;
@@ -40,14 +43,14 @@ public class Controller2 {
 		}
 		public Dice getDice() {return this.dice;}
 	}
-	private Dungeon dungeon;
-	private Mode mode;
-	private Area2.OrientedActor player;
-	private Area2.OrientedActor boss;
-	private List<Area2.OrientedActor> order;
+	protected Dungeon dungeon;
+	protected Mode mode;
+	protected Area2.OrientedActor player;
+	protected Area2.OrientedActor boss;
+	protected List<Area2.OrientedActor> order;
 	public Controller2 () {
 		this.dungeon = null;
-		this.mode = Mode.SIMPLE_INITIATIVE;
+		this.mode = Mode.ADVENTURE;
 		this.order = new ArrayList<Area2.OrientedActor>();
 	}
 	public Terrain getTerrain(Point point) {return this.dungeon.getCurrentArea().getTerrain(point);}
@@ -78,6 +81,20 @@ public class Controller2 {
 		else
 			this.moveCurrentActor(Orientation.random());
 	}
+	public void rollInitiative() {
+		List<Check> checks = new ArrayList<Check>();
+		for (Area2.OrientedActor actor : this.dungeon.getCurrentArea().getActorsAll()) {
+			//(Actor origin, Type type, Score.Type checkType, Dice dice, Score.Type contestType, Score.Type saveType)
+			Check check = new Check(actor,Roll.Type.NORMAL,Score.Type.DEXTERITY,this.mode.getDice(),null,null);
+			check.roll();
+			int i = 0;
+			while (i < checks.size() && checks.get(i).getValue() > check.getValue()) {
+				i++;
+			}
+			this.order.add(i, actor);
+			checks.add(i, check);
+		}
+	}
 	public void attackCurrentActor (Orientation direction) {
 		this.order.get(0).setOrientation(direction);
 		Actor target = this.dungeon.getCurrentArea().getLine(this.order.get(0).getLocation(), this.order.get(0).getOrientation(), 1, this.order.get(0).getMainHand().getRange()/this.dungeon.getCurrentArea().getScale(), false).getActorsNearest(this.order.get(0).getLocation(), 1).get(0);
@@ -85,6 +102,14 @@ public class Controller2 {
 		attack.roll();
 		if (attack.getValue() >= target.getArmorClass()) {
 			target.takeDamage(attack.getDamage());
+			if (target.getHP() == 0) {
+				this.order.get(0).getInventory().add(target.unequipArmor());
+				this.order.get(0).getInventory().add(target.unequipMainHand());
+				this.order.get(0).getInventory().add(target.unequipOffHand());
+				this.order.get(0).getInventory().addAll(target.getInventory());
+				this.order.remove(this.order.indexOf(target));
+				this.dungeon.getCurrentArea().removeActor(this.dungeon.getCurrentArea().getLocationOfActor(target));
+			}
 		}
 	}
 	public void save(String file) {
@@ -105,11 +130,13 @@ public class Controller2 {
 		}
 	}
 	public void newGame() {
+		System.out.println("----------------------------------- starting a new game ----------------------------------");
 		Actor player = new Actor(CreatureRace.HUMAN, CreatureClass.FIGHTER, Score.getScores());
 		player.setAllegiance(Actor.Allegiance.PARTY);
-		Dungeon dungeon = new Dungeon();
+		this.dungeon = new Dungeon();
 		Dungeon.LinkedArea previousArea = null;
 		for (int i = 0; i < 20; i++) {
+			System.out.println("generating area " + (i+1));
 			HashMap<Point,Terrain> terrain = new HashMap<Point,Terrain>();
 			String floormap = ""
 					// 0123456789012345678901234
@@ -139,6 +166,7 @@ public class Controller2 {
 					+ "0111111111111111111111110\n" //23
 					+ "0000000000000000000000000\n" //24
 					+ "";
+			System.out.println("\tparsing");
 			int x = 0, y = 0;
 			for (int j = 0; j < floormap.length(); j++) {
 				switch (floormap.charAt(j)) {
@@ -147,14 +175,16 @@ public class Controller2 {
 					x = 0;
 					break;
 				case '1':
-					terrain.put(new Point(++x,y), Terrain.Type.FLOOR_ROCK.create());
+					terrain.put(new Point(x++,y), Terrain.Type.FLOOR_ROCK.create());
 					break;
 				case '0':
-					terrain.put(new Point(++x,y), Terrain.Type.WALL_SHEER.create());
+					terrain.put(new Point(x++,y), Terrain.Type.WALL_SHEER.create());
 					break;
 				}
 			}
-			Dungeon.LinkedArea area = dungeon.new LinkedArea(terrain);
+			System.out.println("\tterraforming");
+			Dungeon.LinkedArea area = this.dungeon.new LinkedArea(terrain);
+			System.out.println("\tplacing actors");
 			for (int j = 0; j <= i; j++) {
 				Actor skeleton = new Actor(CreatureRace.SKELETON, CreatureClass.FIGHTER, Score.getScores());
 				skeleton.setAllegiance(Actor.Allegiance.ENEMY);
@@ -179,6 +209,7 @@ public class Controller2 {
 				area.addActor(vampire);
 				this.boss = vampire;
 			}
+			System.out.println("\tlinking");
 			if (previousArea != null) {
 				Point linkPointFrom = previousArea.getRandomUnoccupiedLocation();
 				Point linkPointTo = area.getRandomUnoccupiedLocation();
@@ -189,12 +220,30 @@ public class Controller2 {
 						newOpenSides.add(Orientation.values()[j]);
 				}
 				previousArea.addTerrain(previousArea.new OrientedTerrain(Terrain.Type.STAIRS_DOWN.create(),linkPointFrom,newOpenSides));
-				previousArea.addLinks(dungeon.new AreaLink(linkPointFrom,area,linkPointTo));
+				previousArea.addLinks(this.dungeon.new AreaLink(linkPointFrom,area,linkPointTo));
 			}
+			this.dungeon.addArea(area);
+			previousArea = area;
 		}
 		Area2 current = this.dungeon.getCurrentArea();
 		Area2.OrientedActor orientedPlayer = current.new OrientedActor(player,current.getRandomUnoccupiedLocation(),Orientation.random());
 		current.addActor(orientedPlayer);
 		this.player = orientedPlayer;
+		this.setMode(Mode.SIMPLE_INITIATIVE);
+		System.out.println("done making new game");
 	}
+	public void setMode(Controller2.Mode mode) {
+		this.mode = mode;
+		if (mode == Mode.INITIATIVE || mode == Mode.SIMPLE_INITIATIVE) {
+			this.rollInitiative();
+		}
+		else {
+			this.order.addAll(this.getCurrentDungeon().getCurrentArea().getActorsAll());
+		}
+	}
+	public boolean isPlayerDead() {return this.player.getHP() == 0;}
+	public boolean isBossDead() {return this.boss.getHP() == 0;}
+	public Dungeon getCurrentDungeon() {return this.dungeon;}
+	public Mode getMode() {return this.mode;}
+	public List<Area2.OrientedActor> getOrder() {return this.order;}
 }

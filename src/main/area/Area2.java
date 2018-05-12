@@ -64,7 +64,9 @@ public class Area2 {
 			ymax = Math.max(ymax, point.y);
 			this.terrain.put(point, new OrientedTerrain(terrain.get(point),point,new HashSet<Orientation>()));
 		}
+		this.actor = new HashMap<Point,OrientedActor>();
 		this.shape = new Rectangle(xmin,ymin,xmax-xmin,ymax-ymin);
+		System.out.println(String.format("shape being set at x=%d, y=%d, w=%d, h=%d", xmin, ymin, xmax-xmin, ymax-ymin));
 		this.scale = 5;
 		this.sculpt();
 	}
@@ -81,6 +83,7 @@ public class Area2 {
 					}
 			}
 	}
+	public Shape getShape() {return this.shape;}
 	public int getScale() {return this.scale;}
 	public Point getNext(Point point, Orientation orientation) {return new Point(point.x+orientation.dx(),point.y+orientation.dy());}
 	public boolean canMove(Point point, Orientation orientation) {
@@ -88,14 +91,9 @@ public class Area2 {
 		return to!=null && to.isOpenTo(orientation) && !this.actor.containsKey(this.getNext(point, orientation));
 	}
 	public Point getRandomUnoccupiedLocation() {
-		int x,y;
-		Point point;
-		do {
-			x = ThreadLocalRandom.current().nextInt(this.shape.getBounds().x, this.shape.getBounds().x + this.shape.getBounds().width);
-			y = ThreadLocalRandom.current().nextInt(this.shape.getBounds().y, this.shape.getBounds().y + this.shape.getBounds().height);
-			point = new Point(x,y);
-		} while(!this.shape.contains(point) || !this.actor.containsKey(point));
-		return point;
+		HashSet<Point> unoccupied = new HashSet<Point>(this.terrain.keySet());
+		unoccupied.removeIf(key -> this.terrain.get(key).getMovementMultiplier()==0 || this.actor.containsKey(key));
+		return unoccupied.toArray(new Point[unoccupied.size()])[ThreadLocalRandom.current().nextInt(unoccupied.size())];
 	}
 	public Area2 getLine(Point origin, Orientation direction, int length, int width, boolean includeOrigin) {
 		Shape line = AffineTransform.getRotateInstance(Math.toRadians(direction.getBearing()+180),origin.x+0.5,origin.y+0.5).createTransformedShape(new Rectangle(origin.x-(width/2),origin.y,width,length));
@@ -184,9 +182,16 @@ public class Area2 {
 		return actors.subList(0, Math.min(actors.size(), n));
 	}
 	public void moveActor(Point point, Orientation direction) {
-		this.actor.get(point).setOrientation(direction);
-		if(this.canMove(point, direction))
-			this.actor.get(point).setLocation(this.getNext(point, direction));
+		OrientedActor actor = this.actor.remove(point);
+		if (actor != null) {
+			actor.setOrientation(direction);
+			System.out.println(String.format("from point x=%d, y=%d can move north=%s, northeast=%s, east=%s, southeast=%s, south=%s, southwest=%s, west=%s, northwest=%s", actor.location.x, actor.location.y, this.terrain.get(point).isOpenTo(Orientation.NORTH), this.terrain.get(point).isOpenTo(Orientation.NORTHEAST), this.terrain.get(point).isOpenTo(Orientation.EAST), this.terrain.get(point).isOpenTo(Orientation.SOUTHEAST), this.terrain.get(point).isOpenTo(Orientation.SOUTH), this.terrain.get(point).isOpenTo(Orientation.SOUTHWEST), this.terrain.get(point).isOpenTo(Orientation.WEST), this.terrain.get(point).isOpenTo(Orientation.NORTHWEST)));
+			if(this.canMove(point, direction)) {
+				Point next = this.getNext(point, direction);
+				this.actor.put(next, actor);
+				actor.setLocation(next);
+			}
+		}
 	}
 	public void addActor(OrientedActor actor) {
 		this.actor.put(actor.getLocation(), actor);
@@ -202,5 +207,13 @@ public class Area2 {
 	}
 	public Area2.OrientedActor getActor(Point point) {
 		return this.actor.get(point);
+	}
+	public Point getLocationOfActor(Actor actor) {
+		for (Point point : this.actor.keySet()) {
+			if (this.actor.get(point) == actor) {
+				return point;
+			}
+		}
+		return null;
 	}
 }

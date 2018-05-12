@@ -22,7 +22,7 @@ public enum Orientation {
 	}
 	public int getBearing() {return this.bearing;}
 	public int dx() {return this.bearing%180 == 0 ? 0 : this.bearing > 180 ? -1 : 1;}
-	public int dy() {return (this.bearing+90)%180==0 ? 0 : (this.bearing+90)>180 ? -1 : 1;}
+	public int dy() {return (this.bearing+90)%180==0 ? 0 : (this.bearing+90)>180 ? 1 : -1;}
 	public Orientation next(int degrees) {return fromBearing(this.bearing+degrees);}
 	public Orientation nextRight45() {return this.next(45);}
 	public Orientation nextRight90() {return this.next(90);}
