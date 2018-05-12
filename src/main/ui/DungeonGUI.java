@@ -29,8 +29,8 @@ public class DungeonGUI {
 	private InterpretedController controller;
 	private JFrame window;
 	private JMenuBar bar;
-	private JMenu file;
-	private JMenuItem save, load, newg;
+	private JMenu file, help;
+	private JMenuItem save, load, newg, howtoplay;
 	private JPanel container, dungeon, party;
 	private Actor displayActor;
 	public DungeonGUI() {
@@ -118,11 +118,35 @@ public class DungeonGUI {
 			}}
 		});
 		this.file = new JMenu("File");
-		this.bar = new JMenuBar();
 		this.file.add(this.save);
 		this.file.add(this.load);
 		this.file.add(this.newg);
+		this.howtoplay = new JMenuItem("How To Play");
+		this.howtoplay.getAccessibleContext().setAccessibleDescription("Get some help figuring out how to play Dungeon Delver!");
+		this.howtoplay.addMouseListener(new MouseListener() {
+			@Override
+			public void mouseClicked(MouseEvent arg0) {}
+			@Override
+			public void mouseEntered(MouseEvent arg0) {}
+			@Override
+			public void mouseExited(MouseEvent arg0) {}
+			@Override
+			public void mousePressed(MouseEvent arg0) {}
+			@Override
+			public void mouseReleased(MouseEvent arg0) { {
+				JOptionPane.showMessageDialog(null, "use WASD to move your character around\r\n" + 
+						"use SHIFT + WASD to attack skeletons or the scary vampire!\r\n" + 
+						"find the stairs on each floor and get to the vampire quickly!\r\n" + 
+						"click on characters to see their stats");
+				dungeon.repaint();
+				party.repaint();
+			}}
+		});
+		this.help = new JMenu("Help");
+		this.help.add(this.howtoplay);
+		this.bar = new JMenuBar();
 		this.bar.add(this.file);
+		this.bar.add(this.help);
 		this.window.setJMenuBar(this.bar);
 		//this.window.setVisible(true);
 		this.dungeon = new JPanel() {
