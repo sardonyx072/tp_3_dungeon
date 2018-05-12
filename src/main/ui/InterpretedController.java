@@ -5,6 +5,8 @@ import main.area.Orientation;
 import main.control.Controller2;
 
 public class InterpretedController extends Controller2 {
+	private static final long serialVersionUID = 7112222854137316929L;
+
 	public void act(String command, String... arg) {
 		switch (command) {
 		case "moveUp":

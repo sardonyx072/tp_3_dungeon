@@ -6,6 +6,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
@@ -30,7 +31,8 @@ import main.dice.Die;
 import main.items.Armor;
 import main.items.Weapon;
 
-public class Controller2 {
+public class Controller2 implements Serializable {
+	private static final long serialVersionUID = 8614168035584062340L;
 	public enum Mode {
 		ADVENTURE(new Dice(new Die[] {new Constant(10)})), // in adventure mode, all checks are made with a 10 instead of a roll (in a party, all other party actors follow leader in a snake formation)
 		INITIATIVE(Die.Type.D20.create(1)), // in initiative mode, all checks are made with die rolls and all actors take turns
