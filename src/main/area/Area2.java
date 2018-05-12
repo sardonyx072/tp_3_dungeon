@@ -191,6 +191,9 @@ public class Area2 {
 				this.actor.put(next, actor);
 				actor.setLocation(next);
 			}
+			else {
+				this.actor.put(actor.getLocation(), actor);
+			}
 		}
 	}
 	public void addActor(OrientedActor actor) {

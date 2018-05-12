@@ -1,5 +1,6 @@
 package main.ui;
 
+import main.actor.Actor;
 import main.area.Orientation;
 import main.control.Controller2;
 
@@ -54,6 +55,13 @@ public class InterpretedController extends Controller2 {
 		case "newg":
 			this.newGame();
 			break;
+		}
+		if (this.mode == Mode.SIMPLE_INITIATIVE) {
+			this.endTurn();
+			while (this.getCurrentActor().getAllegiance() != Actor.Allegiance.PARTY) {
+				this.moveCurrentActor();
+				this.endTurn();
+			}
 		}
 	}
 }

@@ -9,7 +9,6 @@ import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
-import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -21,7 +20,6 @@ import main.actor.CreatureRace;
 import main.actor.Damage;
 import main.actor.Roll;
 import main.actor.Score;
-import main.actor.Roll.Type;
 import main.area.Area2;
 import main.area.Dungeon;
 import main.area.Orientation;
@@ -58,7 +56,9 @@ public class Controller2 {
 	public Area2.OrientedActor getCurrentActor() {return this.order.get(0);}
 	public Area2.OrientedActor getPlayer() {return this.player;}
 	public Area2.OrientedActor getBoss() {return this.boss;}
-	public void endTurn() {this.order.add(this.order.remove(0));}
+	public void endTurn() {
+		this.order.add(this.order.remove(0));
+	}
 	public void moveCurrentActor(Orientation direction) {
 		this.order.get(0).setOrientation(direction);
 		this.dungeon.getCurrentArea().moveActor(this.getCurrentActor().getLocation(), direction);
@@ -110,6 +110,9 @@ public class Controller2 {
 				this.order.remove(this.order.indexOf(target));
 				this.dungeon.getCurrentArea().removeActor(this.dungeon.getCurrentArea().getLocationOfActor(target));
 			}
+		}
+		if (this.mode == Mode.SIMPLE_INITIATIVE) {
+			this.endTurn();
 		}
 	}
 	public void save(String file) {
@@ -246,4 +249,5 @@ public class Controller2 {
 	public Dungeon getCurrentDungeon() {return this.dungeon;}
 	public Mode getMode() {return this.mode;}
 	public List<Area2.OrientedActor> getOrder() {return this.order;}
+	public boolean isPartyTurn() {return this.getCurrentActor().getAllegiance() == Actor.Allegiance.PARTY;}
 }
