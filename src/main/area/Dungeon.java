@@ -8,7 +8,8 @@ import java.util.HashSet;
 
 public class Dungeon implements Serializable {
 	private static final long serialVersionUID = 5440257946658946338L;
-	public class AreaLink {
+	public class AreaLink implements Serializable {
+		private static final long serialVersionUID = 6469133846394572368L;
 		private Point fromPoint, toPoint;
 		private LinkedArea toArea;
 		public AreaLink(Point fromPoint, LinkedArea toArea, Point toPoint) {
@@ -20,7 +21,8 @@ public class Dungeon implements Serializable {
 		public LinkedArea getToArea() {return this.toArea;}
 		public Point getToPoint() {return this.toPoint;}
 	}
-	public class LinkedArea extends Area2 {
+	public class LinkedArea extends Area2 implements Serializable {
+		private static final long serialVersionUID = -2390569893118658877L;
 		private HashSet<AreaLink> links;
 		public LinkedArea(HashMap<Point,Terrain> terrain, AreaLink...areaLinks) {
 			super(terrain);

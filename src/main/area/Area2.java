@@ -5,6 +5,7 @@ import java.awt.Rectangle;
 import java.awt.Shape;
 import java.awt.geom.AffineTransform;
 import java.awt.geom.Ellipse2D;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
@@ -17,11 +18,13 @@ import javax.swing.ImageIcon;
 
 import main.actor.Actor;
 
-public class Area2 {
+public class Area2 implements Serializable {
+	private static final long serialVersionUID = 6302094824158376141L;
 	private interface OrientedElement {
 		public Point getLocation();
 	}
-	public class OrientedTerrain extends Terrain implements OrientedElement {
+	public class OrientedTerrain extends Terrain implements OrientedElement, Serializable {
+		private static final long serialVersionUID = -4279152394587978071L;
 		private Point location;
 		private boolean[] openSides;
 		public OrientedTerrain(Terrain terrain, Point location, HashSet<Orientation> openSides) {
@@ -36,7 +39,8 @@ public class Area2 {
 		public boolean isOpenTo(Orientation orientation) {return this.openSides[orientation.ordinal()];}
 		public void setOpenTo(Orientation side, boolean value) {this.openSides[side.ordinal()] = value;}
 	}
-	public class OrientedActor extends Actor implements OrientedElement {
+	public class OrientedActor extends Actor implements OrientedElement, Serializable {
+		private static final long serialVersionUID = 4373951790005171441L;
 		private Point location;
 		private Orientation orientation;
 		public OrientedActor(Actor actor, Point location, Orientation orientation) {

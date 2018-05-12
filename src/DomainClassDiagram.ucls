@@ -253,16 +253,7 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="29" language="java" name="main.area.Location" project="Dungeon" file="/Dungeon/src/main/area/Location.java" 
-    binary="false" corner="BOTTOM_RIGHT">    
-    <position height="96" width="383" x="5422" y="179"/>    
-    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
-      sort-features="false" accessors="true" visibility="true">      
-      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
-      <operations public="true" package="true" protected="true" private="true" static="true"/>    
-    </display>  
-  </class>  
-  <class id="30" language="java" name="main.dice.Die" project="Dungeon" file="/Dungeon/src/main/dice/Die.java" 
+  <class id="29" language="java" name="main.dice.Die" project="Dungeon" file="/Dungeon/src/main/dice/Die.java" 
     binary="false" corner="BOTTOM_RIGHT">    
     <position height="237" width="180" x="1840" y="3915"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
@@ -271,7 +262,7 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="31" language="java" name="main.items.Accessory" project="Dungeon" 
+  <class id="30" language="java" name="main.items.Accessory" project="Dungeon" 
     file="/Dungeon/src/main/items/Accessory.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="96" width="123" x="2221" y="1791"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
@@ -280,7 +271,7 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <enumeration id="32" language="java" name="main.actor.CreatureClass" project="Dungeon" 
+  <enumeration id="31" language="java" name="main.actor.CreatureClass" project="Dungeon" 
     file="/Dungeon/src/main/actor/CreatureClass.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="416" width="537" x="1261" y="2743"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
@@ -289,7 +280,7 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </enumeration>  
-  <class id="33" language="java" name="main.actor.Actor" project="Dungeon" file="/Dungeon/src/main/actor/Actor.java" 
+  <class id="32" language="java" name="main.actor.Actor" project="Dungeon" file="/Dungeon/src/main/actor/Actor.java" 
     binary="false" corner="BOTTOM_RIGHT">    
     <position height="1156" width="444" x="2386" y="595"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
@@ -298,7 +289,7 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <enumeration id="34" language="java" name="main.actor.Sprite.Moment" project="Dungeon" 
+  <enumeration id="33" language="java" name="main.actor.Sprite.Moment" project="Dungeon" 
     file="/Dungeon/src/main/actor/Sprite.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="396" width="250" x="4205" y="2743"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
@@ -307,7 +298,7 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </enumeration>  
-  <class id="35" language="java" name="main.actor.Damage" project="Dungeon" file="/Dungeon/src/main/actor/Damage.java" 
+  <class id="34" language="java" name="main.actor.Damage" project="Dungeon" file="/Dungeon/src/main/actor/Damage.java" 
     binary="false" corner="BOTTOM_RIGHT">    
     <position height="256" width="180" x="1838" y="2743"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
@@ -316,7 +307,7 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="36" language="java" name="main.dice.Constant" project="Dungeon" file="/Dungeon/src/main/dice/Constant.java" 
+  <class id="35" language="java" name="main.dice.Constant" project="Dungeon" file="/Dungeon/src/main/dice/Constant.java" 
     binary="false" corner="BOTTOM_RIGHT">    
     <position height="136" width="180" x="1734" y="4568"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
@@ -325,7 +316,7 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <enumeration id="37" language="java" name="main.items.Armor.Attribute" project="Dungeon" 
+  <enumeration id="36" language="java" name="main.items.Armor.Attribute" project="Dungeon" 
     file="/Dungeon/src/main/items/Armor.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="136" width="207" x="3918" y="3439"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
@@ -334,7 +325,7 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </enumeration>  
-  <enumeration id="38" language="java" name="main.Effect.Alteration" project="Dungeon" 
+  <enumeration id="37" language="java" name="main.Effect.Alteration" project="Dungeon" 
     file="/Dungeon/src/main/Effect.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="236" width="230" x="3429" y="3439"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
@@ -343,7 +334,7 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </enumeration>  
-  <enumeration id="39" language="java" name="main.control.Controller2.Mode" project="Dungeon" 
+  <enumeration id="38" language="java" name="main.control.Controller2.Mode" project="Dungeon" 
     file="/Dungeon/src/main/control/Controller2.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="176" width="214" x="4423" y="1791"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
@@ -352,7 +343,7 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </enumeration>  
-  <enumeration id="40" language="java" name="main.actor.Actor.Allegiance" project="Dungeon" 
+  <enumeration id="39" language="java" name="main.actor.Actor.Allegiance" project="Dungeon" 
     file="/Dungeon/src/main/actor/Actor.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="196" width="180" x="1980" y="1791"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
@@ -361,7 +352,7 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </enumeration>  
-  <enumeration id="41" language="java" name="main.actor.Score.Type" project="Dungeon" 
+  <enumeration id="40" language="java" name="main.actor.Score.Type" project="Dungeon" 
     file="/Dungeon/src/main/actor/Score.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="216" width="180" x="1155" y="3439"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
@@ -370,7 +361,7 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </enumeration>  
-  <enumeration id="42" language="java" name="main.Effect.Direction" project="Dungeon" 
+  <enumeration id="41" language="java" name="main.Effect.Direction" project="Dungeon" 
     file="/Dungeon/src/main/Effect.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="136" width="179" x="3699" y="3439"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
@@ -379,7 +370,7 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </enumeration>  
-  <enumeration id="43" language="java" name="main.items.Weapon.Attribute" project="Dungeon" 
+  <enumeration id="42" language="java" name="main.items.Weapon.Attribute" project="Dungeon" 
     file="/Dungeon/src/main/items/Weapon.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="156" width="204" x="2280" y="3439"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
@@ -388,7 +379,7 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </enumeration>  
-  <class id="44" language="java" name="main.area.Terrain" project="Dungeon" file="/Dungeon/src/main/area/Terrain.java" 
+  <class id="43" language="java" name="main.area.Terrain" project="Dungeon" file="/Dungeon/src/main/area/Terrain.java" 
     binary="false" corner="BOTTOM_RIGHT">    
     <position height="236" width="282" x="5119" y="595"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
@@ -397,7 +388,7 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <enumeration id="45" language="java" name="main.area.Terrain.Type" project="Dungeon" 
+  <enumeration id="44" language="java" name="main.area.Terrain.Type" project="Dungeon" 
     file="/Dungeon/src/main/area/Terrain.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="296" width="231" x="4969" y="1791"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
@@ -406,7 +397,7 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </enumeration>  
-  <enumeration id="46" language="java" name="main.actor.CreatureRace" project="Dungeon" 
+  <enumeration id="45" language="java" name="main.actor.CreatureRace" project="Dungeon" 
     file="/Dungeon/src/main/actor/CreatureRace.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="356" width="368" x="3237" y="1791"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
@@ -415,7 +406,7 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </enumeration>  
-  <class id="47" language="java" name="main.dice.SimDie" project="Dungeon" file="/Dungeon/src/main/dice/SimDie.java" 
+  <class id="46" language="java" name="main.dice.SimDie" project="Dungeon" file="/Dungeon/src/main/dice/SimDie.java" 
     binary="false" corner="BOTTOM_RIGHT">    
     <position height="216" width="180" x="1840" y="4192"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
@@ -424,7 +415,7 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="48" language="java" name="main.Effect" project="Dungeon" file="/Dungeon/src/main/Effect.java" 
+  <class id="47" language="java" name="main.Effect" project="Dungeon" file="/Dungeon/src/main/Effect.java" 
     binary="false" corner="BOTTOM_RIGHT">    
     <position height="96" width="309" x="3378" y="2743"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
@@ -433,7 +424,7 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="49" language="java" name="main.area.Dungeon.LinkedArea" project="Dungeon" 
+  <class id="48" language="java" name="main.area.Dungeon.LinkedArea" project="Dungeon" 
     file="/Dungeon/src/main/area/Dungeon.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="136" width="364" x="4677" y="2743"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
@@ -442,7 +433,7 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="50" language="java" name="main.actor.Score" project="Dungeon" file="/Dungeon/src/main/actor/Score.java" 
+  <class id="49" language="java" name="main.actor.Score" project="Dungeon" file="/Dungeon/src/main/actor/Score.java" 
     binary="false" corner="BOTTOM_RIGHT">    
     <position height="236" width="276" x="945" y="2743"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
@@ -451,7 +442,7 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="51" language="java" name="main.area.Dungeon.AreaLink" project="Dungeon" 
+  <class id="50" language="java" name="main.area.Dungeon.AreaLink" project="Dungeon" 
     file="/Dungeon/src/main/area/Dungeon.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="196" width="260" x="4396" y="2187"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
@@ -460,7 +451,7 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <enumeration id="52" language="java" name="main.actor.Damage.Type" project="Dungeon" 
+  <enumeration id="51" language="java" name="main.actor.Damage.Type" project="Dungeon" 
     file="/Dungeon/src/main/actor/Damage.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="336" width="182" x="1838" y="3439"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
@@ -469,7 +460,7 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </enumeration>  
-  <class id="53" language="java" name="main.area.Area2.OrientedActor" project="Dungeon" 
+  <class id="52" language="java" name="main.area.Area2.OrientedActor" project="Dungeon" 
     file="/Dungeon/src/main/area/Area2.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="216" width="289" x="4094" y="1791"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
@@ -478,7 +469,7 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="54" language="java" name="main.Application" project="Dungeon" file="/Dungeon/src/main/Application.java" 
+  <class id="53" language="java" name="main.Application" project="Dungeon" file="/Dungeon/src/main/Application.java" 
     binary="false" corner="BOTTOM_RIGHT">    
     <position height="136" width="152" x="231" y="179"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
@@ -487,7 +478,7 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="55" language="java" name="main.ui.DungeonGUI" project="Dungeon" file="/Dungeon/src/main/ui/DungeonGUI.java" 
+  <class id="54" language="java" name="main.ui.DungeonGUI" project="Dungeon" file="/Dungeon/src/main/ui/DungeonGUI.java" 
     binary="false" corner="BOTTOM_RIGHT">    
     <position height="376" width="178" x="2947" y="179"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
@@ -496,7 +487,7 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <interface id="56" language="java" name="main.dice.Rollable" project="Dungeon" 
+  <interface id="55" language="java" name="main.dice.Rollable" project="Dungeon" 
     file="/Dungeon/src/main/dice/Rollable.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="176" width="146" x="2060" y="4192"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
@@ -505,7 +496,7 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </interface>  
-  <class id="57" language="java" name="main.items.Item" project="Dungeon" file="/Dungeon/src/main/items/Item.java" 
+  <class id="56" language="java" name="main.items.Item" project="Dungeon" file="/Dungeon/src/main/items/Item.java" 
     binary="false" corner="BOTTOM_RIGHT">    
     <position height="256" width="198" x="2709" y="1791"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
@@ -514,7 +505,7 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="58" language="java" name="main.items.Weapon" project="Dungeon" file="/Dungeon/src/main/items/Weapon.java" 
+  <class id="57" language="java" name="main.items.Weapon" project="Dungeon" file="/Dungeon/src/main/items/Weapon.java" 
     binary="false" corner="BOTTOM_RIGHT">    
     <position height="276" width="678" x="2405" y="2187"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
@@ -523,843 +514,807 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <association id="59">    
-    <end type="SOURCE" refId="58" navigable="false">      
-      <attribute id="60" name="damage1H"/>      
-      <multiplicity id="61" minimum="0" maximum="1"/>    
+  <association id="58">    
+    <end type="SOURCE" refId="57" navigable="false">      
+      <attribute id="59" name="damage1H"/>      
+      <multiplicity id="60" minimum="0" maximum="1"/>    
     </end>    
-    <end type="TARGET" refId="35" navigable="true"/>    
+    <end type="TARGET" refId="34" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <nesting id="62">    
+  <nesting id="61">    
     <end type="SOURCE" refId="17"/>    
     <end type="TARGET" refId="23"/>  
   </nesting>  
-  <association id="63">    
+  <association id="62">    
     <end type="SOURCE" refId="24" navigable="false">      
-      <attribute id="64" name="boss"/>      
-      <multiplicity id="65" minimum="0" maximum="1"/>    
+      <attribute id="63" name="boss"/>      
+      <multiplicity id="64" minimum="0" maximum="1"/>    
     </end>    
-    <end type="TARGET" refId="53" navigable="true"/>    
+    <end type="TARGET" refId="52" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <nesting id="66">    
+  <nesting id="65">    
     <bendpoint x="4153" y="2743"/>    
     <end type="SOURCE" refId="11"/>    
     <end type="TARGET" refId="25"/>  
   </nesting>  
-  <association id="67">    
-    <end type="SOURCE" refId="51" navigable="false">      
-      <attribute id="68" name="toArea"/>      
-      <multiplicity id="69" minimum="0" maximum="1"/>    
+  <association id="66">    
+    <end type="SOURCE" refId="50" navigable="false">      
+      <attribute id="67" name="toArea"/>      
+      <multiplicity id="68" minimum="0" maximum="1"/>    
     </end>    
-    <end type="TARGET" refId="49" navigable="true"/>    
+    <end type="TARGET" refId="48" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <association id="70">    
+  <association id="69">    
     <end type="SOURCE" refId="24" navigable="false">      
-      <attribute id="71" name="mode"/>      
-      <multiplicity id="72" minimum="0" maximum="1"/>    
+      <attribute id="70" name="mode"/>      
+      <multiplicity id="71" minimum="0" maximum="1"/>    
     </end>    
-    <end type="TARGET" refId="39" navigable="true"/>    
+    <end type="TARGET" refId="38" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <association id="73">    
+  <association id="72">    
     <end type="SOURCE" refId="24" navigable="false">      
-      <attribute id="74" name="player"/>      
-      <multiplicity id="75" minimum="0" maximum="1"/>    
+      <attribute id="73" name="player"/>      
+      <multiplicity id="74" minimum="0" maximum="1"/>    
     </end>    
-    <end type="TARGET" refId="53" navigable="true"/>    
+    <end type="TARGET" refId="52" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <association id="76">    
+  <association id="75">    
     <end type="SOURCE" refId="27" navigable="false">      
-      <attribute id="77" name="contestType"/>      
-      <multiplicity id="78" minimum="0" maximum="1"/>    
+      <attribute id="76" name="contestType"/>      
+      <multiplicity id="77" minimum="0" maximum="1"/>    
     </end>    
-    <end type="TARGET" refId="41" navigable="true"/>    
+    <end type="TARGET" refId="40" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <realization id="79">    
+  <realization id="78">    
     <end type="SOURCE" refId="23"/>    
     <end type="TARGET" refId="19"/>  
   </realization>  
-  <association id="80">    
-    <end type="SOURCE" refId="33" navigable="false">      
-      <attribute id="81" name="inventory"/>      
-      <multiplicity id="82" minimum="0" maximum="2147483647"/>    
+  <association id="79">    
+    <end type="SOURCE" refId="32" navigable="false">      
+      <attribute id="80" name="inventory"/>      
+      <multiplicity id="81" minimum="0" maximum="2147483647"/>    
     </end>    
-    <end type="TARGET" refId="57" navigable="true"/>    
+    <end type="TARGET" refId="56" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <association id="83">    
+  <association id="82">    
     <bendpoint x="4686" y="2187"/>    
     <end type="SOURCE" refId="26" navigable="false">      
-      <attribute id="84" name="currentArea"/>      
-      <multiplicity id="85" minimum="0" maximum="1"/>    
+      <attribute id="83" name="currentArea"/>      
+      <multiplicity id="84" minimum="0" maximum="1"/>    
     </end>    
-    <end type="TARGET" refId="49" navigable="true"/>    
+    <end type="TARGET" refId="48" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <nesting id="86">    
+  <nesting id="85">    
     <bendpoint x="81" y="1791"/>    
     <bendpoint x="81" y="2187"/>    
     <end type="SOURCE" refId="22"/>    
     <end type="TARGET" refId="5"/>  
   </nesting>  
-  <nesting id="87">    
-    <end type="SOURCE" refId="58"/>    
+  <nesting id="86">    
+    <end type="SOURCE" refId="57"/>    
     <end type="TARGET" refId="2"/>  
   </nesting>  
-  <association id="88">    
-    <end type="SOURCE" refId="32" navigable="false">      
-      <attribute id="89" name="armorTypes"/>      
-      <multiplicity id="90" minimum="0" maximum="2147483647"/>    
+  <association id="87">    
+    <end type="SOURCE" refId="31" navigable="false">      
+      <attribute id="88" name="armorTypes"/>      
+      <multiplicity id="89" minimum="0" maximum="2147483647"/>    
     </end>    
     <end type="TARGET" refId="25" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <association id="91">    
+  <association id="90">    
     <bendpoint x="2956" y="595"/>    
-    <end type="SOURCE" refId="55" navigable="false">      
-      <attribute id="92" name="controller"/>      
-      <multiplicity id="93" minimum="0" maximum="1"/>    
+    <end type="SOURCE" refId="54" navigable="false">      
+      <attribute id="91" name="controller"/>      
+      <multiplicity id="92" minimum="0" maximum="1"/>    
     </end>    
     <end type="TARGET" refId="28" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <association id="94">    
-    <end type="SOURCE" refId="48" navigable="false">      
-      <attribute id="95" name="alteration"/>      
-      <multiplicity id="96" minimum="0" maximum="1"/>    
-    </end>    
-    <end type="TARGET" refId="38" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="97">    
-    <bendpoint x="2584" y="2743"/>    
-    <end type="SOURCE" refId="58" navigable="false">      
-      <attribute id="98" name="attribute"/>      
-      <multiplicity id="99" minimum="0" maximum="1"/>    
-    </end>    
-    <end type="TARGET" refId="43" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="100">    
-    <end type="SOURCE" refId="7" navigable="false">      
-      <attribute id="101" name="attributes"/>      
-      <multiplicity id="102" minimum="0" maximum="2147483647"/>    
+  <association id="93">    
+    <end type="SOURCE" refId="47" navigable="false">      
+      <attribute id="94" name="alteration"/>      
+      <multiplicity id="95" minimum="0" maximum="1"/>    
     </end>    
     <end type="TARGET" refId="37" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <nesting id="103">    
-    <bendpoint x="4728" y="2187"/>    
-    <end type="SOURCE" refId="26"/>    
-    <end type="TARGET" refId="49"/>  
-  </nesting>  
-  <association id="104">    
-    <end type="SOURCE" refId="24" navigable="false">      
-      <attribute id="105" name="order"/>      
-      <multiplicity id="106" minimum="0" maximum="2147483647"/>    
+  <association id="96">    
+    <bendpoint x="2584" y="2743"/>    
+    <end type="SOURCE" refId="57" navigable="false">      
+      <attribute id="97" name="attribute"/>      
+      <multiplicity id="98" minimum="0" maximum="1"/>    
     </end>    
-    <end type="TARGET" refId="53" navigable="true"/>    
+    <end type="TARGET" refId="42" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <association id="107">    
-    <end type="SOURCE" refId="35" navigable="false">      
-      <attribute id="108" name="dice"/>      
-      <multiplicity id="109" minimum="0" maximum="1"/>    
+  <association id="99">    
+    <end type="SOURCE" refId="7" navigable="false">      
+      <attribute id="100" name="attributes"/>      
+      <multiplicity id="101" minimum="0" maximum="2147483647"/>    
+    </end>    
+    <end type="TARGET" refId="36" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <nesting id="102">    
+    <bendpoint x="4728" y="2187"/>    
+    <end type="SOURCE" refId="26"/>    
+    <end type="TARGET" refId="48"/>  
+  </nesting>  
+  <association id="103">    
+    <end type="SOURCE" refId="24" navigable="false">      
+      <attribute id="104" name="order"/>      
+      <multiplicity id="105" minimum="0" maximum="2147483647"/>    
+    </end>    
+    <end type="TARGET" refId="52" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="106">    
+    <end type="SOURCE" refId="34" navigable="false">      
+      <attribute id="107" name="dice"/>      
+      <multiplicity id="108" minimum="0" maximum="1"/>    
     </end>    
     <end type="TARGET" refId="4" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <nesting id="110">    
-    <end type="SOURCE" refId="48"/>    
+  <nesting id="109">    
+    <end type="SOURCE" refId="47"/>    
     <end type="TARGET" refId="9"/>  
   </nesting>  
-  <association id="111">    
-    <end type="SOURCE" refId="44" navigable="false">      
-      <attribute id="112" name="type"/>      
-      <multiplicity id="113" minimum="0" maximum="1"/>    
+  <association id="110">    
+    <end type="SOURCE" refId="43" navigable="false">      
+      <attribute id="111" name="type"/>      
+      <multiplicity id="112" minimum="0" maximum="1"/>    
     </end>    
-    <end type="TARGET" refId="45" navigable="true"/>    
+    <end type="TARGET" refId="44" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <association id="114">    
+  <association id="113">    
     <bendpoint x="551" y="595"/>    
     <bendpoint x="551" y="1791"/>    
     <bendpoint x="551" y="2187"/>    
     <bendpoint x="551" y="2743"/>    
     <end type="SOURCE" refId="21" navigable="false">      
-      <attribute id="115" name="score"/>      
-      <multiplicity id="116" minimum="0" maximum="1"/>    
-    </end>    
-    <end type="TARGET" refId="41" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="117">    
-    <end type="SOURCE" refId="35" navigable="false">      
-      <attribute id="118" name="type"/>      
-      <multiplicity id="119" minimum="0" maximum="1"/>    
-    </end>    
-    <end type="TARGET" refId="52" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <generalization id="120">    
-    <end type="SOURCE" refId="28"/>    
-    <end type="TARGET" refId="24"/>  
-  </generalization>  
-  <generalization id="121">    
-    <end type="SOURCE" refId="11"/>    
-    <end type="TARGET" refId="57"/>  
-  </generalization>  
-  <association id="122">    
-    <end type="SOURCE" refId="7" navigable="false">      
-      <attribute id="123" name="type"/>      
-      <multiplicity id="124" minimum="0" maximum="1"/>    
-    </end>    
-    <end type="TARGET" refId="25" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="125">    
-    <end type="SOURCE" refId="49" navigable="false">      
-      <attribute id="126" name="links"/>      
-      <multiplicity id="127" minimum="0" maximum="2147483647"/>    
-    </end>    
-    <end type="TARGET" refId="51" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="128">    
-    <end type="SOURCE" refId="46" navigable="false">      
-      <attribute id="129" name="sprite"/>      
-      <multiplicity id="130" minimum="0" maximum="1"/>    
-    </end>    
-    <end type="TARGET" refId="12" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <generalization id="131">    
-    <bendpoint x="4365" y="2187"/>    
-    <bendpoint x="4063" y="1791"/>    
-    <end type="SOURCE" refId="49"/>    
-    <end type="TARGET" refId="17"/>  
-  </generalization>  
-  <association id="132">    
-    <bendpoint x="5431" y="595"/>    
-    <bendpoint x="5431" y="1791"/>    
-    <end type="SOURCE" refId="29" navigable="false">      
-      <attribute id="133" name="actorOrientation"/>      
-      <multiplicity id="134" minimum="0" maximum="1"/>    
-    </end>    
-    <end type="TARGET" refId="1" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="135">    
-    <end type="SOURCE" refId="2" navigable="false">      
-      <attribute id="136" name="damage2H"/>      
-      <multiplicity id="137" minimum="0" maximum="1"/>    
-    </end>    
-    <end type="TARGET" refId="4" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <nesting id="138">    
-    <end type="SOURCE" refId="44"/>    
-    <end type="TARGET" refId="45"/>  
-  </nesting>  
-  <association id="139">    
-    <end type="SOURCE" refId="29" navigable="false">      
-      <attribute id="140" name="actor"/>      
-      <multiplicity id="141" minimum="0" maximum="1"/>    
-    </end>    
-    <end type="TARGET" refId="33" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="142">    
-    <end type="SOURCE" refId="33" navigable="false">      
-      <attribute id="143" name="accessory1"/>      
-      <multiplicity id="144" minimum="0" maximum="1"/>    
-    </end>    
-    <end type="TARGET" refId="31" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="145">    
-    <end type="SOURCE" refId="33" navigable="false">      
-      <attribute id="146" name="allegiance"/>      
-      <multiplicity id="147" minimum="0" maximum="1"/>    
+      <attribute id="114" name="score"/>      
+      <multiplicity id="115" minimum="0" maximum="1"/>    
     </end>    
     <end type="TARGET" refId="40" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <association id="148">    
-    <end type="SOURCE" refId="33" navigable="false">      
-      <attribute id="149" name="accessory2"/>      
-      <multiplicity id="150" minimum="0" maximum="1"/>    
+  <association id="116">    
+    <end type="SOURCE" refId="34" navigable="false">      
+      <attribute id="117" name="type"/>      
+      <multiplicity id="118" minimum="0" maximum="1"/>    
     </end>    
-    <end type="TARGET" refId="31" navigable="true"/>    
+    <end type="TARGET" refId="51" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <association id="151">    
-    <end type="SOURCE" refId="58" navigable="false">      
-      <attribute id="152" name="damage2H"/>      
-      <multiplicity id="153" minimum="0" maximum="1"/>    
+  <generalization id="119">    
+    <end type="SOURCE" refId="28"/>    
+    <end type="TARGET" refId="24"/>  
+  </generalization>  
+  <generalization id="120">    
+    <end type="SOURCE" refId="11"/>    
+    <end type="TARGET" refId="56"/>  
+  </generalization>  
+  <association id="121">    
+    <end type="SOURCE" refId="7" navigable="false">      
+      <attribute id="122" name="type"/>      
+      <multiplicity id="123" minimum="0" maximum="1"/>    
     </end>    
-    <end type="TARGET" refId="35" navigable="true"/>    
+    <end type="TARGET" refId="25" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <association id="154">    
-    <end type="SOURCE" refId="33" navigable="false">      
-      <attribute id="155" name="accessory3"/>      
-      <multiplicity id="156" minimum="0" maximum="1"/>    
+  <association id="124">    
+    <end type="SOURCE" refId="48" navigable="false">      
+      <attribute id="125" name="links"/>      
+      <multiplicity id="126" minimum="0" maximum="2147483647"/>    
     </end>    
-    <end type="TARGET" refId="31" navigable="true"/>    
+    <end type="TARGET" refId="50" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <nesting id="157">    
+  <association id="127">    
+    <end type="SOURCE" refId="45" navigable="false">      
+      <attribute id="128" name="sprite"/>      
+      <multiplicity id="129" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="12" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <generalization id="130">    
+    <bendpoint x="4365" y="2187"/>    
+    <bendpoint x="4063" y="1791"/>    
+    <end type="SOURCE" refId="48"/>    
+    <end type="TARGET" refId="17"/>  
+  </generalization>  
+  <association id="131">    
+    <end type="SOURCE" refId="2" navigable="false">      
+      <attribute id="132" name="damage2H"/>      
+      <multiplicity id="133" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="4" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <nesting id="134">    
+    <end type="SOURCE" refId="43"/>    
+    <end type="TARGET" refId="44"/>  
+  </nesting>  
+  <association id="135">    
+    <end type="SOURCE" refId="32" navigable="false">      
+      <attribute id="136" name="accessory1"/>      
+      <multiplicity id="137" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="30" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="138">    
+    <end type="SOURCE" refId="32" navigable="false">      
+      <attribute id="139" name="allegiance"/>      
+      <multiplicity id="140" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="39" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="141">    
+    <end type="SOURCE" refId="32" navigable="false">      
+      <attribute id="142" name="accessory2"/>      
+      <multiplicity id="143" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="30" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="144">    
+    <end type="SOURCE" refId="57" navigable="false">      
+      <attribute id="145" name="damage2H"/>      
+      <multiplicity id="146" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="34" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="147">    
+    <end type="SOURCE" refId="32" navigable="false">      
+      <attribute id="148" name="accessory3"/>      
+      <multiplicity id="149" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="30" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <nesting id="150">    
     <bendpoint x="3717" y="2743"/>    
     <end type="SOURCE" refId="11"/>    
-    <end type="TARGET" refId="37"/>  
+    <end type="TARGET" refId="36"/>  
   </nesting>  
-  <association id="158">    
-    <end type="SOURCE" refId="48" navigable="false">      
-      <attribute id="159" name="duration"/>      
-      <multiplicity id="160" minimum="0" maximum="1"/>    
+  <association id="151">    
+    <end type="SOURCE" refId="47" navigable="false">      
+      <attribute id="152" name="duration"/>      
+      <multiplicity id="153" minimum="0" maximum="1"/>    
     </end>    
     <end type="TARGET" refId="8" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <association id="161">    
-    <end type="SOURCE" refId="53" navigable="false">      
-      <attribute id="162" name="orientation"/>      
-      <multiplicity id="163" minimum="0" maximum="1"/>    
+  <association id="154">    
+    <end type="SOURCE" refId="52" navigable="false">      
+      <attribute id="155" name="orientation"/>      
+      <multiplicity id="156" minimum="0" maximum="1"/>    
     </end>    
     <end type="TARGET" refId="1" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <nesting id="164">    
-    <end type="SOURCE" refId="48"/>    
+  <nesting id="157">    
+    <end type="SOURCE" refId="47"/>    
     <end type="TARGET" refId="15"/>  
   </nesting>  
-  <association id="165">    
-    <end type="SOURCE" refId="33" navigable="false">      
-      <attribute id="166" name="actorRace"/>      
-      <multiplicity id="167" minimum="0" maximum="1"/>    
+  <association id="158">    
+    <end type="SOURCE" refId="32" navigable="false">      
+      <attribute id="159" name="actorRace"/>      
+      <multiplicity id="160" minimum="0" maximum="1"/>    
     </end>    
-    <end type="TARGET" refId="46" navigable="true"/>    
+    <end type="TARGET" refId="45" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <association id="168">    
+  <association id="161">    
     <end type="SOURCE" refId="14" navigable="false">      
-      <attribute id="169" name="onSaveSuccess"/>      
-      <multiplicity id="170" minimum="0" maximum="1"/>    
+      <attribute id="162" name="onSaveSuccess"/>      
+      <multiplicity id="163" minimum="0" maximum="1"/>    
     </end>    
     <end type="TARGET" refId="5" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <association id="171">    
-    <end type="SOURCE" refId="55" navigable="false">      
-      <attribute id="172" name="displayActor"/>      
-      <multiplicity id="173" minimum="0" maximum="1"/>    
+  <association id="164">    
+    <end type="SOURCE" refId="54" navigable="false">      
+      <attribute id="165" name="displayActor"/>      
+      <multiplicity id="166" minimum="0" maximum="1"/>    
     </end>    
-    <end type="TARGET" refId="33" navigable="true"/>    
+    <end type="TARGET" refId="32" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <generalization id="174">    
+  <generalization id="167">    
     <bendpoint x="591" y="2187"/>    
     <bendpoint x="591" y="1791"/>    
     <bendpoint x="591" y="595"/>    
     <end type="SOURCE" refId="27"/>    
     <end type="TARGET" refId="21"/>  
   </generalization>  
-  <generalization id="175">    
-    <end type="SOURCE" refId="53"/>    
-    <end type="TARGET" refId="33"/>  
+  <generalization id="168">    
+    <end type="SOURCE" refId="52"/>    
+    <end type="TARGET" refId="32"/>  
   </generalization>  
-  <generalization id="176">    
-    <end type="SOURCE" refId="47"/>    
-    <end type="TARGET" refId="30"/>  
+  <generalization id="169">    
+    <end type="SOURCE" refId="46"/>    
+    <end type="TARGET" refId="29"/>  
   </generalization>  
-  <nesting id="177">    
+  <nesting id="170">    
     <bendpoint x="5230" y="1791"/>    
-    <end type="SOURCE" refId="44"/>    
+    <end type="SOURCE" refId="43"/>    
     <end type="TARGET" refId="13"/>  
   </nesting>  
-  <nesting id="178">    
+  <nesting id="171">    
     <bendpoint x="2605" y="2743"/>    
-    <end type="SOURCE" refId="58"/>    
-    <end type="TARGET" refId="43"/>  
+    <end type="SOURCE" refId="57"/>    
+    <end type="TARGET" refId="42"/>  
   </nesting>  
-  <association id="179">    
+  <association id="172">    
     <end type="SOURCE" refId="2" navigable="false">      
-      <attribute id="180" name="type"/>      
-      <multiplicity id="181" minimum="0" maximum="1"/>    
+      <attribute id="173" name="type"/>      
+      <multiplicity id="174" minimum="0" maximum="1"/>    
     </end>    
     <end type="TARGET" refId="20" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <association id="182">    
+  <association id="175">    
     <bendpoint x="4707" y="2187"/>    
     <end type="SOURCE" refId="26" navigable="false">      
-      <attribute id="183" name="areas"/>      
-      <multiplicity id="184" minimum="0" maximum="2147483647"/>    
-    </end>    
-    <end type="TARGET" refId="49" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <nesting id="185">    
-    <end type="SOURCE" refId="48"/>    
-    <end type="TARGET" refId="38"/>  
-  </nesting>  
-  <association id="186">    
-    <end type="SOURCE" refId="32" navigable="false">      
-      <attribute id="187" name="attackProficiencies"/>      
-      <multiplicity id="188" minimum="0" maximum="2147483647"/>    
-    </end>    
-    <end type="TARGET" refId="41" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="189">    
-    <end type="SOURCE" refId="17" navigable="false">      
-      <attribute id="190" name="terrain"/>      
-      <multiplicity id="191" minimum="0" maximum="2147483647"/>    
-    </end>    
-    <end type="TARGET" refId="23" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <nesting id="192">    
-    <end type="SOURCE" refId="50"/>    
-    <end type="TARGET" refId="41"/>  
-  </nesting>  
-  <association id="193">    
-    <end type="SOURCE" refId="4" navigable="false">      
-      <attribute id="194" name="dice"/>      
-      <multiplicity id="195" minimum="0" maximum="2147483647"/>    
-    </end>    
-    <end type="TARGET" refId="30" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="196">    
-    <end type="SOURCE" refId="48" navigable="false">      
-      <attribute id="197" name="direction"/>      
-      <multiplicity id="198" minimum="0" maximum="1"/>    
-    </end>    
-    <end type="TARGET" refId="42" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="199">    
-    <end type="SOURCE" refId="32" navigable="false">      
-      <attribute id="200" name="hitDice"/>      
-      <multiplicity id="201" minimum="0" maximum="1"/>    
-    </end>    
-    <end type="TARGET" refId="4" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="202">    
-    <end type="SOURCE" refId="32" navigable="false">      
-      <attribute id="203" name="saveProficiencies"/>      
-      <multiplicity id="204" minimum="0" maximum="2147483647"/>    
-    </end>    
-    <end type="TARGET" refId="41" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <nesting id="205">    
-    <bendpoint x="2647" y="2743"/>    
-    <end type="SOURCE" refId="58"/>    
-    <end type="TARGET" refId="20"/>  
-  </nesting>  
-  <nesting id="206">    
-    <end type="SOURCE" refId="17"/>    
-    <end type="TARGET" refId="53"/>  
-  </nesting>  
-  <association id="207">    
-    <bendpoint x="914" y="2743"/>    
-    <end type="SOURCE" refId="14" navigable="false">      
-      <attribute id="208" name="saveType"/>      
-      <multiplicity id="209" minimum="0" maximum="1"/>    
-    </end>    
-    <end type="TARGET" refId="41" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="210">    
-    <end type="SOURCE" refId="11" navigable="false">      
-      <attribute id="211" name="effects"/>      
-      <multiplicity id="212" minimum="0" maximum="2147483647"/>    
+      <attribute id="176" name="areas"/>      
+      <multiplicity id="177" minimum="0" maximum="2147483647"/>    
     </end>    
     <end type="TARGET" refId="48" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <association id="213">    
-    <end type="SOURCE" refId="32" navigable="false">      
-      <attribute id="214" name="scoreOrder"/>      
-      <multiplicity id="215" minimum="0" maximum="2147483647"/>    
-    </end>    
-    <end type="TARGET" refId="41" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="216">    
-    <end type="SOURCE" refId="32" navigable="false">      
-      <attribute id="217" name="checkProficiencies"/>      
-      <multiplicity id="218" minimum="0" maximum="2147483647"/>    
-    </end>    
-    <end type="TARGET" refId="41" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="219">    
-    <bendpoint x="3738" y="2743"/>    
-    <end type="SOURCE" refId="11" navigable="false">      
-      <attribute id="220" name="overrideAttributes"/>      
-      <multiplicity id="221" minimum="0" maximum="2147483647"/>    
-    </end>    
-    <end type="TARGET" refId="37" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="222">    
-    <end type="SOURCE" refId="21" navigable="false">      
-      <attribute id="223" name="type"/>      
-      <multiplicity id="224" minimum="0" maximum="1"/>    
-    </end>    
-    <end type="TARGET" refId="16" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="225">    
-    <end type="SOURCE" refId="14" navigable="false">      
-      <attribute id="226" name="criticalDamage"/>      
-      <multiplicity id="227" minimum="0" maximum="1"/>    
-    </end>    
-    <end type="TARGET" refId="35" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <nesting id="228">    
-    <end type="SOURCE" refId="12"/>    
-    <end type="TARGET" refId="34"/>  
+  <nesting id="178">    
+    <end type="SOURCE" refId="47"/>    
+    <end type="TARGET" refId="37"/>  
   </nesting>  
-  <generalization id="229">    
-    <end type="SOURCE" refId="23"/>    
-    <end type="TARGET" refId="44"/>  
-  </generalization>  
-  <association id="230">    
-    <bendpoint x="5251" y="1791"/>    
-    <end type="SOURCE" refId="44" navigable="false">      
-      <attribute id="231" name="movement"/>      
-      <multiplicity id="232" minimum="0" maximum="1"/>    
+  <association id="179">    
+    <end type="SOURCE" refId="31" navigable="false">      
+      <attribute id="180" name="attackProficiencies"/>      
+      <multiplicity id="181" minimum="0" maximum="2147483647"/>    
     </end>    
-    <end type="TARGET" refId="13" navigable="true"/>    
+    <end type="TARGET" refId="40" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <association id="233">    
-    <bendpoint x="2069" y="2743"/>    
-    <end type="SOURCE" refId="58" navigable="false">      
-      <attribute id="234" name="score"/>      
-      <multiplicity id="235" minimum="0" maximum="1"/>    
+  <association id="182">    
+    <end type="SOURCE" refId="17" navigable="false">      
+      <attribute id="183" name="terrain"/>      
+      <multiplicity id="184" minimum="0" maximum="2147483647"/>    
     </end>    
-    <end type="TARGET" refId="41" navigable="true"/>    
+    <end type="TARGET" refId="23" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <association id="236">    
-    <end type="SOURCE" refId="14" navigable="false">      
-      <attribute id="237" name="damage"/>      
-      <multiplicity id="238" minimum="0" maximum="1"/>    
-    </end>    
-    <end type="TARGET" refId="35" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="239">    
-    <end type="SOURCE" refId="21" navigable="false">      
-      <attribute id="240" name="origin"/>      
-      <multiplicity id="241" minimum="0" maximum="1"/>    
-    </end>    
-    <end type="TARGET" refId="33" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="242">    
-    <bendpoint x="2190" y="1791"/>    
-    <bendpoint x="2027" y="2187"/>    
-    <end type="SOURCE" refId="33" navigable="false">      
-      <attribute id="243" name="scores"/>      
-      <multiplicity id="244" minimum="0" maximum="2147483647"/>    
-    </end>    
-    <end type="TARGET" refId="50" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <nesting id="245">    
-    <end type="SOURCE" refId="33"/>    
+  <nesting id="185">    
+    <end type="SOURCE" refId="49"/>    
     <end type="TARGET" refId="40"/>  
   </nesting>  
-  <association id="246">    
-    <bendpoint x="4174" y="2743"/>    
-    <end type="SOURCE" refId="11" navigable="false">      
-      <attribute id="247" name="type"/>      
-      <multiplicity id="248" minimum="0" maximum="1"/>    
+  <association id="186">    
+    <end type="SOURCE" refId="4" navigable="false">      
+      <attribute id="187" name="dice"/>      
+      <multiplicity id="188" minimum="0" maximum="2147483647"/>    
     </end>    
-    <end type="TARGET" refId="25" navigable="true"/>    
+    <end type="TARGET" refId="29" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <association id="249">    
-    <end type="SOURCE" refId="45" navigable="false">      
-      <attribute id="250" name="movement"/>      
-      <multiplicity id="251" minimum="0" maximum="1"/>    
-    </end>    
-    <end type="TARGET" refId="13" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <nesting id="252">    
-    <bendpoint x="3185" y="1791"/>    
-    <end type="SOURCE" refId="17"/>    
-    <end type="TARGET" refId="19"/>  
-  </nesting>  
-  <nesting id="253">    
-    <end type="SOURCE" refId="24"/>    
-    <end type="TARGET" refId="39"/>  
-  </nesting>  
-  <association id="254">    
-    <end type="SOURCE" refId="2" navigable="false">      
-      <attribute id="255" name="damageType"/>      
-      <multiplicity id="256" minimum="0" maximum="1"/>    
-    </end>    
-    <end type="TARGET" refId="52" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <nesting id="257">    
-    <end type="SOURCE" refId="48"/>    
-    <end type="TARGET" refId="42"/>  
-  </nesting>  
-  <generalization id="258">    
-    <end type="SOURCE" refId="58"/>    
-    <end type="TARGET" refId="57"/>  
-  </generalization>  
-  <realization id="259">    
-    <bendpoint x="2069" y="3915"/>    
-    <end type="SOURCE" refId="4"/>    
-    <end type="TARGET" refId="56"/>  
-  </realization>  
-  <association id="260">    
-    <bendpoint x="2626" y="2743"/>    
-    <end type="SOURCE" refId="58" navigable="false">      
-      <attribute id="261" name="type"/>      
-      <multiplicity id="262" minimum="0" maximum="1"/>    
-    </end>    
-    <end type="TARGET" refId="20" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="263">    
-    <end type="SOURCE" refId="32" navigable="false">      
-      <attribute id="264" name="weaponTypes"/>      
-      <multiplicity id="265" minimum="0" maximum="2147483647"/>    
-    </end>    
-    <end type="TARGET" refId="20" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="266">    
-    <end type="SOURCE" refId="2" navigable="false">      
-      <attribute id="267" name="attribute"/>      
-      <multiplicity id="268" minimum="0" maximum="1"/>    
-    </end>    
-    <end type="TARGET" refId="43" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <generalization id="269">    
-    <end type="SOURCE" refId="3"/>    
-    <end type="TARGET" refId="30"/>  
-  </generalization>  
-  <generalization id="270">    
-    <end type="SOURCE" refId="6"/>    
-    <end type="TARGET" refId="3"/>  
-  </generalization>  
-  <association id="271">    
-    <end type="SOURCE" refId="27" navigable="false">      
-      <attribute id="272" name="saveType"/>      
-      <multiplicity id="273" minimum="0" maximum="1"/>    
+  <association id="189">    
+    <end type="SOURCE" refId="47" navigable="false">      
+      <attribute id="190" name="direction"/>      
+      <multiplicity id="191" minimum="0" maximum="1"/>    
     </end>    
     <end type="TARGET" refId="41" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <association id="274">    
-    <end type="SOURCE" refId="2" navigable="false">      
-      <attribute id="275" name="damage1H"/>      
-      <multiplicity id="276" minimum="0" maximum="1"/>    
+  <association id="192">    
+    <end type="SOURCE" refId="31" navigable="false">      
+      <attribute id="193" name="hitDice"/>      
+      <multiplicity id="194" minimum="0" maximum="1"/>    
     </end>    
     <end type="TARGET" refId="4" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <association id="277">    
-    <end type="SOURCE" refId="32" navigable="false">      
-      <attribute id="278" name="saveScore"/>      
-      <multiplicity id="279" minimum="0" maximum="1"/>    
+  <association id="195">    
+    <end type="SOURCE" refId="31" navigable="false">      
+      <attribute id="196" name="saveProficiencies"/>      
+      <multiplicity id="197" minimum="0" maximum="2147483647"/>    
     </end>    
-    <end type="TARGET" refId="41" navigable="true"/>    
+    <end type="TARGET" refId="40" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <generalization id="280">    
+  <nesting id="198">    
+    <bendpoint x="2647" y="2743"/>    
+    <end type="SOURCE" refId="57"/>    
+    <end type="TARGET" refId="20"/>  
+  </nesting>  
+  <nesting id="199">    
+    <end type="SOURCE" refId="17"/>    
+    <end type="TARGET" refId="52"/>  
+  </nesting>  
+  <association id="200">    
+    <bendpoint x="914" y="2743"/>    
+    <end type="SOURCE" refId="14" navigable="false">      
+      <attribute id="201" name="saveType"/>      
+      <multiplicity id="202" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="40" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="203">    
+    <end type="SOURCE" refId="11" navigable="false">      
+      <attribute id="204" name="effects"/>      
+      <multiplicity id="205" minimum="0" maximum="2147483647"/>    
+    </end>    
+    <end type="TARGET" refId="47" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="206">    
+    <end type="SOURCE" refId="31" navigable="false">      
+      <attribute id="207" name="scoreOrder"/>      
+      <multiplicity id="208" minimum="0" maximum="2147483647"/>    
+    </end>    
+    <end type="TARGET" refId="40" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="209">    
+    <end type="SOURCE" refId="31" navigable="false">      
+      <attribute id="210" name="checkProficiencies"/>      
+      <multiplicity id="211" minimum="0" maximum="2147483647"/>    
+    </end>    
+    <end type="TARGET" refId="40" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="212">    
+    <bendpoint x="3738" y="2743"/>    
+    <end type="SOURCE" refId="11" navigable="false">      
+      <attribute id="213" name="overrideAttributes"/>      
+      <multiplicity id="214" minimum="0" maximum="2147483647"/>    
+    </end>    
+    <end type="TARGET" refId="36" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="215">    
+    <end type="SOURCE" refId="21" navigable="false">      
+      <attribute id="216" name="type"/>      
+      <multiplicity id="217" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="16" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="218">    
+    <end type="SOURCE" refId="14" navigable="false">      
+      <attribute id="219" name="criticalDamage"/>      
+      <multiplicity id="220" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="34" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <nesting id="221">    
+    <end type="SOURCE" refId="12"/>    
+    <end type="TARGET" refId="33"/>  
+  </nesting>  
+  <generalization id="222">    
+    <end type="SOURCE" refId="23"/>    
+    <end type="TARGET" refId="43"/>  
+  </generalization>  
+  <association id="223">    
+    <bendpoint x="5251" y="1791"/>    
+    <end type="SOURCE" refId="43" navigable="false">      
+      <attribute id="224" name="movement"/>      
+      <multiplicity id="225" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="13" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="226">    
+    <bendpoint x="2069" y="2743"/>    
+    <end type="SOURCE" refId="57" navigable="false">      
+      <attribute id="227" name="score"/>      
+      <multiplicity id="228" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="40" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="229">    
+    <end type="SOURCE" refId="14" navigable="false">      
+      <attribute id="230" name="damage"/>      
+      <multiplicity id="231" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="34" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="232">    
+    <end type="SOURCE" refId="21" navigable="false">      
+      <attribute id="233" name="origin"/>      
+      <multiplicity id="234" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="32" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="235">    
+    <bendpoint x="2190" y="1791"/>    
+    <bendpoint x="2027" y="2187"/>    
+    <end type="SOURCE" refId="32" navigable="false">      
+      <attribute id="236" name="scores"/>      
+      <multiplicity id="237" minimum="0" maximum="2147483647"/>    
+    </end>    
+    <end type="TARGET" refId="49" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <nesting id="238">    
+    <end type="SOURCE" refId="32"/>    
+    <end type="TARGET" refId="39"/>  
+  </nesting>  
+  <association id="239">    
+    <bendpoint x="4174" y="2743"/>    
+    <end type="SOURCE" refId="11" navigable="false">      
+      <attribute id="240" name="type"/>      
+      <multiplicity id="241" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="25" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="242">    
+    <end type="SOURCE" refId="44" navigable="false">      
+      <attribute id="243" name="movement"/>      
+      <multiplicity id="244" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="13" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <nesting id="245">    
+    <bendpoint x="3185" y="1791"/>    
+    <end type="SOURCE" refId="17"/>    
+    <end type="TARGET" refId="19"/>  
+  </nesting>  
+  <nesting id="246">    
+    <end type="SOURCE" refId="24"/>    
+    <end type="TARGET" refId="38"/>  
+  </nesting>  
+  <association id="247">    
+    <end type="SOURCE" refId="2" navigable="false">      
+      <attribute id="248" name="damageType"/>      
+      <multiplicity id="249" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="51" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <nesting id="250">    
+    <end type="SOURCE" refId="47"/>    
+    <end type="TARGET" refId="41"/>  
+  </nesting>  
+  <generalization id="251">    
+    <end type="SOURCE" refId="57"/>    
+    <end type="TARGET" refId="56"/>  
+  </generalization>  
+  <realization id="252">    
+    <bendpoint x="2069" y="3915"/>    
+    <end type="SOURCE" refId="4"/>    
+    <end type="TARGET" refId="55"/>  
+  </realization>  
+  <association id="253">    
+    <bendpoint x="2626" y="2743"/>    
+    <end type="SOURCE" refId="57" navigable="false">      
+      <attribute id="254" name="type"/>      
+      <multiplicity id="255" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="20" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="256">    
+    <end type="SOURCE" refId="31" navigable="false">      
+      <attribute id="257" name="weaponTypes"/>      
+      <multiplicity id="258" minimum="0" maximum="2147483647"/>    
+    </end>    
+    <end type="TARGET" refId="20" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="259">    
+    <end type="SOURCE" refId="2" navigable="false">      
+      <attribute id="260" name="attribute"/>      
+      <multiplicity id="261" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="42" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <generalization id="262">    
+    <end type="SOURCE" refId="3"/>    
+    <end type="TARGET" refId="29"/>  
+  </generalization>  
+  <generalization id="263">    
+    <end type="SOURCE" refId="6"/>    
+    <end type="TARGET" refId="3"/>  
+  </generalization>  
+  <association id="264">    
+    <end type="SOURCE" refId="27" navigable="false">      
+      <attribute id="265" name="saveType"/>      
+      <multiplicity id="266" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="40" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="267">    
+    <end type="SOURCE" refId="2" navigable="false">      
+      <attribute id="268" name="damage1H"/>      
+      <multiplicity id="269" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="4" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="270">    
+    <end type="SOURCE" refId="31" navigable="false">      
+      <attribute id="271" name="saveScore"/>      
+      <multiplicity id="272" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="40" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <generalization id="273">    
     <bendpoint x="752" y="1791"/>    
     <bendpoint x="752" y="595"/>    
     <end type="SOURCE" refId="14"/>    
     <end type="TARGET" refId="21"/>  
   </generalization>  
-  <association id="281">    
+  <association id="274">    
     <end type="SOURCE" refId="2" navigable="false">      
-      <attribute id="282" name="score"/>      
-      <multiplicity id="283" minimum="0" maximum="1"/>    
+      <attribute id="275" name="score"/>      
+      <multiplicity id="276" minimum="0" maximum="1"/>    
     </end>    
-    <end type="TARGET" refId="41" navigable="true"/>    
+    <end type="TARGET" refId="40" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <association id="284">    
+  <association id="277">    
     <bendpoint x="3206" y="1791"/>    
-    <end type="SOURCE" refId="33" navigable="false">      
-      <attribute id="285" name="armor"/>      
-      <multiplicity id="286" minimum="0" maximum="1"/>    
+    <end type="SOURCE" refId="32" navigable="false">      
+      <attribute id="278" name="armor"/>      
+      <multiplicity id="279" minimum="0" maximum="1"/>    
     </end>    
     <end type="TARGET" refId="11" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <nesting id="287">    
+  <nesting id="280">    
     <end type="SOURCE" refId="26"/>    
-    <end type="TARGET" refId="51"/>  
+    <end type="TARGET" refId="50"/>  
   </nesting>  
-  <nesting id="288">    
-    <end type="SOURCE" refId="30"/>    
+  <nesting id="281">    
+    <end type="SOURCE" refId="29"/>    
     <end type="TARGET" refId="10"/>  
   </nesting>  
-  <generalization id="289">    
+  <generalization id="282">    
     <end type="SOURCE" refId="22"/>    
     <end type="TARGET" refId="21"/>  
   </generalization>  
-  <association id="290">    
-    <end type="SOURCE" refId="29" navigable="false">      
-      <attribute id="291" name="terrain"/>      
-      <multiplicity id="292" minimum="0" maximum="1"/>    
-    </end>    
-    <end type="TARGET" refId="44" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <generalization id="293">    
-    <end type="SOURCE" refId="36"/>    
+  <generalization id="283">    
+    <end type="SOURCE" refId="35"/>    
     <end type="TARGET" refId="3"/>  
   </generalization>  
-  <association id="294">    
-    <bendpoint x="5452" y="595"/>    
-    <bendpoint x="5452" y="1791"/>    
-    <end type="SOURCE" refId="29" navigable="false">      
-      <attribute id="295" name="terrainOrientation"/>      
-      <multiplicity id="296" minimum="0" maximum="1"/>    
-    </end>    
-    <end type="TARGET" refId="1" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <nesting id="297">    
+  <nesting id="284">    
     <end type="SOURCE" refId="21"/>    
     <end type="TARGET" refId="16"/>  
   </nesting>  
-  <nesting id="298">    
-    <end type="SOURCE" refId="48"/>    
+  <nesting id="285">    
+    <end type="SOURCE" refId="47"/>    
     <end type="TARGET" refId="8"/>  
   </nesting>  
-  <realization id="299">    
-    <end type="SOURCE" refId="53"/>    
+  <realization id="286">    
+    <end type="SOURCE" refId="52"/>    
     <end type="TARGET" refId="19"/>  
   </realization>  
-  <association id="300">    
+  <association id="287">    
     <bendpoint x="3113" y="2187"/>    
-    <end type="SOURCE" refId="57" navigable="false">      
-      <attribute id="301" name="effects"/>      
-      <multiplicity id="302" minimum="0" maximum="2147483647"/>    
+    <end type="SOURCE" refId="56" navigable="false">      
+      <attribute id="288" name="effects"/>      
+      <multiplicity id="289" minimum="0" maximum="2147483647"/>    
     </end>    
-    <end type="TARGET" refId="48" navigable="true"/>    
+    <end type="TARGET" refId="47" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <nesting id="303">    
-    <end type="SOURCE" refId="35"/>    
-    <end type="TARGET" refId="52"/>  
+  <nesting id="290">    
+    <end type="SOURCE" refId="34"/>    
+    <end type="TARGET" refId="51"/>  
   </nesting>  
-  <association id="304">    
-    <end type="SOURCE" refId="50" navigable="false">      
-      <attribute id="305" name="type"/>      
-      <multiplicity id="306" minimum="0" maximum="1"/>    
+  <association id="291">    
+    <end type="SOURCE" refId="49" navigable="false">      
+      <attribute id="292" name="type"/>      
+      <multiplicity id="293" minimum="0" maximum="1"/>    
     </end>    
-    <end type="TARGET" refId="41" navigable="true"/>    
+    <end type="TARGET" refId="40" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <association id="307">    
+  <association id="294">    
     <bendpoint x="2374" y="1791"/>    
     <bendpoint x="2374" y="2187"/>    
-    <end type="SOURCE" refId="33" navigable="false">      
-      <attribute id="308" name="actorClass"/>      
-      <multiplicity id="309" minimum="0" maximum="1"/>    
+    <end type="SOURCE" refId="32" navigable="false">      
+      <attribute id="295" name="actorClass"/>      
+      <multiplicity id="296" minimum="0" maximum="1"/>    
     </end>    
-    <end type="TARGET" refId="32" navigable="true"/>    
+    <end type="TARGET" refId="31" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <association id="310">    
+  <association id="297">    
     <end type="SOURCE" refId="17" navigable="false">      
-      <attribute id="311" name="actor"/>      
-      <multiplicity id="312" minimum="0" maximum="2147483647"/>    
+      <attribute id="298" name="actor"/>      
+      <multiplicity id="299" minimum="0" maximum="2147483647"/>    
     </end>    
-    <end type="TARGET" refId="53" navigable="true"/>    
+    <end type="TARGET" refId="52" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <association id="313">    
-    <end type="SOURCE" refId="48" navigable="false">      
-      <attribute id="314" name="type"/>      
-      <multiplicity id="315" minimum="0" maximum="1"/>    
+  <association id="300">    
+    <end type="SOURCE" refId="47" navigable="false">      
+      <attribute id="301" name="type"/>      
+      <multiplicity id="302" minimum="0" maximum="1"/>    
     </end>    
     <end type="TARGET" refId="15" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <association id="316">    
+  <association id="303">    
     <bendpoint x="2395" y="1791"/>    
-    <end type="SOURCE" refId="33" navigable="false">      
-      <attribute id="317" name="offHand"/>      
-      <multiplicity id="318" minimum="0" maximum="1"/>    
+    <end type="SOURCE" refId="32" navigable="false">      
+      <attribute id="304" name="offHand"/>      
+      <multiplicity id="305" minimum="0" maximum="1"/>    
     </end>    
-    <end type="TARGET" refId="58" navigable="true"/>    
+    <end type="TARGET" refId="57" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <nesting id="319">    
+  <nesting id="306">    
     <end type="SOURCE" refId="11"/>    
     <end type="TARGET" refId="7"/>  
   </nesting>  
-  <nesting id="320">    
-    <end type="SOURCE" refId="31"/>    
+  <nesting id="307">    
+    <end type="SOURCE" refId="30"/>    
     <end type="TARGET" refId="18"/>  
   </nesting>  
-  <association id="321">    
+  <association id="308">    
     <bendpoint x="2416" y="1791"/>    
-    <end type="SOURCE" refId="33" navigable="false">      
-      <attribute id="322" name="mainHand"/>      
-      <multiplicity id="323" minimum="0" maximum="1"/>    
+    <end type="SOURCE" refId="32" navigable="false">      
+      <attribute id="309" name="mainHand"/>      
+      <multiplicity id="310" minimum="0" maximum="1"/>    
     </end>    
-    <end type="TARGET" refId="58" navigable="true"/>    
+    <end type="TARGET" refId="57" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <association id="324">    
+  <association id="311">    
     <bendpoint x="1949" y="595"/>    
     <bendpoint x="1949" y="1791"/>    
     <bendpoint x="2048" y="2187"/>    
     <bendpoint x="2048" y="2743"/>    
     <end type="SOURCE" refId="21" navigable="false">      
-      <attribute id="325" name="dice"/>      
-      <multiplicity id="326" minimum="0" maximum="1"/>    
+      <attribute id="312" name="dice"/>      
+      <multiplicity id="313" minimum="0" maximum="1"/>    
     </end>    
     <end type="TARGET" refId="4" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <association id="327">    
+  <association id="314">    
     <end type="SOURCE" refId="24" navigable="false">      
-      <attribute id="328" name="dungeon"/>      
-      <multiplicity id="329" minimum="0" maximum="1"/>    
+      <attribute id="315" name="dungeon"/>      
+      <multiplicity id="316" minimum="0" maximum="1"/>    
     </end>    
     <end type="TARGET" refId="26" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <realization id="330">    
-    <end type="SOURCE" refId="30"/>    
-    <end type="TARGET" refId="56"/>  
+  <realization id="317">    
+    <end type="SOURCE" refId="29"/>    
+    <end type="TARGET" refId="55"/>  
   </realization>  
-  <association id="331">    
+  <association id="318">    
     <bendpoint x="3347" y="2187"/>    
     <bendpoint x="3347" y="2743"/>    
-    <end type="SOURCE" refId="39" navigable="false">      
-      <attribute id="332" name="dice"/>      
-      <multiplicity id="333" minimum="0" maximum="1"/>    
+    <end type="SOURCE" refId="38" navigable="false">      
+      <attribute id="319" name="dice"/>      
+      <multiplicity id="320" minimum="0" maximum="1"/>    
     </end>    
     <end type="TARGET" refId="4" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  

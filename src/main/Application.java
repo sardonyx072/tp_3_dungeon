@@ -12,8 +12,6 @@ import javafx.util.Duration;
 
 public class Application extends javafx.application.Application {
 	public static void main(String[] args) {
-		//TempDriver driver = new TempDriver();
-		//driver.run();
 		launch(args);
 	}
 

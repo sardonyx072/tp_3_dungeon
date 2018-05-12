@@ -3,25 +3,16 @@ package main.ui;
 import java.awt.*;
 import java.awt.event.*;
 import java.awt.image.BufferedImage;
-import java.io.File;
-import java.io.IOException;
-import java.util.ArrayList;
 import java.util.List;
 
 import javax.swing.*;
 
 import com.sun.glass.events.KeyEvent;
 
-import javafx.scene.media.Media;
-import javafx.scene.media.MediaPlayer;
-import javafx.util.Duration;
 import main.actor.Actor;
 import main.actor.Score;
-import main.actor.Sprite;
 import main.area.Area2;
-import main.area.Dungeon;
 import main.area.Orientation;
-import main.area.Terrain;
 import main.items.Item;
 
 public class DungeonGUI {
@@ -59,7 +50,6 @@ public class DungeonGUI {
 			public void mouseReleased(MouseEvent arg0) { {
 				JFileChooser fileChooser = new JFileChooser();
 				if (fileChooser.showSaveDialog(null) == JFileChooser.APPROVE_OPTION) {
-					//interpreter.act("save");
 					try {
 						controller.act("save", fileChooser.getSelectedFile().getCanonicalPath());
 					} catch (Exception e) {
@@ -84,8 +74,7 @@ public class DungeonGUI {
 			@Override
 			public void mouseReleased(MouseEvent arg0) { {
 				JFileChooser fileChooser = new JFileChooser();
-				if (fileChooser.showSaveDialog(null) == JFileChooser.APPROVE_OPTION) {
-					//interpreter.act("load");
+				if (fileChooser.showOpenDialog(null) == JFileChooser.APPROVE_OPTION) {
 					try {
 						controller.act("load", fileChooser.getSelectedFile().getCanonicalPath());
 					} catch (Exception e) {
@@ -150,6 +139,8 @@ public class DungeonGUI {
 		this.window.setJMenuBar(this.bar);
 		//this.window.setVisible(true);
 		this.dungeon = new JPanel() {
+			private static final long serialVersionUID = -1937703836491254647L;
+
 			@Override
 			public void paintComponent(Graphics g) {
 				super.paintComponent(g);
@@ -210,6 +201,8 @@ public class DungeonGUI {
 		constraints.gridy++;
 		constraints.anchor = GridBagConstraints.CENTER;
 		this.party = new JPanel() {
+			private static final long serialVersionUID = -4335800714697761880L;
+
 			@Override
 			public void paintComponent(Graphics g) {
 				super.paintComponent(g);
