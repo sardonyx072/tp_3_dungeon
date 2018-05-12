@@ -35,4 +35,5 @@ public class Damage implements Cloneable, Serializable {
 	public void roll() {this.dice.roll();}
 	public int getValue() {return this.dice.getValue();}
 	public Damage clone() {return new Damage(this.type,this.dice.clone());}
+	public String toString() {return this.dice.toString() + " " + this.type.toString();}
 }

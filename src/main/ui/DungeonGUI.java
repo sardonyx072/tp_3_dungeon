@@ -2,18 +2,27 @@ package main.ui;
 
 import java.awt.*;
 import java.awt.event.*;
+import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.swing.*;
 
 import com.sun.glass.events.KeyEvent;
 
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
+import javafx.util.Duration;
 import main.actor.Actor;
+import main.actor.Score;
 import main.actor.Sprite;
 import main.area.Area2;
 import main.area.Dungeon;
+import main.area.Orientation;
 import main.area.Terrain;
+import main.items.Item;
 
 public class DungeonGUI {
 	private static final int SQ_WIDTH = 48, SQ_COUNT = 25, DRAW_WIDTH = SQ_WIDTH*SQ_COUNT;
@@ -23,12 +32,12 @@ public class DungeonGUI {
 	private JMenu file;
 	private JMenuItem save, load, newg;
 	private JPanel container, dungeon, party;
+	private Actor displayActor;
 	public DungeonGUI() {
 		this.controller = new InterpretedController();
 		this.controller.newGame();
-//		for (int y = this.controller.getCurrentDungeon().getCurrentArea().getShape().getBounds().y; y < 25; y++)
-//			for (int x = this.controller.getCurrentDungeon().getCurrentArea().getShape().getBounds().x; x < 25; x++)
-//				System.out.println(this.controller.getTerrain(new Point(x,y)) == null);
+		//JOptionPane.showOptionDialog(null, "What to do?", "Welcome to DungeonDelver!", null, null, null, new String[] {"Load Game", "New Game", "Quit"}, null);
+		this.displayActor = this.controller.getPlayer();
 		this.window = new JFrame();
 		this.window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.window.setTitle("Dungeon");
@@ -58,6 +67,7 @@ public class DungeonGUI {
 					}
 				}
 				dungeon.repaint();
+				party.repaint();
 			}}
 		});
 		this.load = new JMenuItem("Load Game");
@@ -83,6 +93,7 @@ public class DungeonGUI {
 					}
 				}
 				dungeon.repaint();
+				party.repaint();
 			}}
 		});
 		this.newg = new JMenuItem("New Game");
@@ -103,6 +114,7 @@ public class DungeonGUI {
 					controller.act("newg");
 				}
 				dungeon.repaint();
+				party.repaint();
 			}}
 		});
 		this.file = new JMenu("File");
@@ -135,6 +147,31 @@ public class DungeonGUI {
 					}
 			}
 		};
+		this.dungeon.addMouseListener(new MouseListener() {
+			@Override
+			public void mouseClicked(MouseEvent arg0) {
+			}
+			@Override
+			public void mouseEntered(MouseEvent arg0) {
+			}
+			@Override
+			public void mouseExited(MouseEvent arg0) {
+			}
+			@Override
+			public void mousePressed(MouseEvent arg0) {
+			}
+			@Override
+			public void mouseReleased(MouseEvent arg0) {
+				Point point = new Point(arg0.getX()/SQ_WIDTH,arg0.getY()/SQ_WIDTH);
+				Actor actor = controller.getActor(point);
+				System.out.println(String.format("clicked on point %s which translates to %s and contains actor %s", new Point(arg0.getX(),arg0.getY()), point, actor==null ? "null" : actor.getActorRace() + " " + actor.getActorClass()));
+				if (actor != null)
+					displayActor = actor;
+				else
+					displayActor = controller.getPlayer();
+				party.repaint();
+			}
+		});
 		this.dungeon.setBackground(Color.WHITE);
 		this.dungeon.setPreferredSize(new Dimension(DRAW_WIDTH,DRAW_WIDTH));
 		//this.dungeon.setMaximumSize(new Dimension(DRAW_WIDTH,DRAW_WIDTH));
@@ -148,9 +185,67 @@ public class DungeonGUI {
 		constraints.anchor = GridBagConstraints.SOUTH;
 		constraints.gridy++;
 		constraints.anchor = GridBagConstraints.CENTER;
-		this.party = new JPanel();
+		this.party = new JPanel() {
+			@Override
+			public void paintComponent(Graphics g) {
+				super.paintComponent(g);
+				System.out.println("repainting party");
+				Graphics2D g2 = (Graphics2D)g;
+				ImageIcon icon = displayActor.getActorRace().getImage(Orientation.SOUTH); //front-facing
+				BufferedImage img = new BufferedImage(icon.getIconWidth(),icon.getIconHeight(),BufferedImage.TYPE_INT_RGB);
+				icon.paintIcon(null, img.createGraphics(), 0, 0);
+				icon = new ImageIcon(img.getScaledInstance(240, 240, BufferedImage.SCALE_DEFAULT));
+				icon.paintIcon(null, g2, 120, 24);
+				g2.drawString(displayActor.getActorRace() + " " + displayActor.getActorClass() + " level " + displayActor.getLevel(), 24, 288);
+				g2.drawString(String.format("STRENGTH: %d, DEXTERITY: %d, CONSTITUTION: %d", displayActor.getScore(Score.Type.STRENGTH), displayActor.getScore(Score.Type.DEXTERITY), displayActor.getScore(Score.Type.CONSTITUTION)), 24, 312);
+				g2.drawString(String.format("INTELLIGENCE: %d, WISDOM: %d, CHARISMA: %d", displayActor.getScore(Score.Type.INTELLIGENCE), displayActor.getScore(Score.Type.WISDOM), displayActor.getScore(Score.Type.CHARISMA)), 24, 336);
+				g2.drawString("\tHP: " + displayActor.getHP() + "/" + displayActor.getMaxHP(), 24, 360);
+				g2.drawString("\tAC: " + displayActor.getArmorClass() + " (" + displayActor.getArmor().getName() + ")", 24, 384);
+				g2.drawString("\tWeapon: " + displayActor.getMainHand().getName() + " " + displayActor.getMainHand().get1HDamage().toString(), 24, 408);
+				g2.drawString("Inventory:", 24, 432);
+				List<Item> inventory = displayActor.getInventory();
+				int i = 0;
+				for (i = 0; i < inventory.size(); i++) {
+					g2.drawString("    " + inventory.get(i).getName(),24,432+((i+1)*24));
+				}
+				g2.drawString("Initiative:",24,432+(++i*24));
+				i++;
+				for (int j = 0; j < controller.getOrder().size(); j++) {
+					Actor actor = controller.getOrder().get(j);
+					g2.drawString((j+1) + ". " + actor.getActorRace() + " " + actor.getActorClass() + " " + actor.getHP() + "/" + actor.getMaxHP(), 24, (432+((i+j)*24)));
+				}
+				if (controller.getPlayer().getHP() == 0 || controller.getBoss().getHP() == 0) {
+					int result = JOptionPane.showOptionDialog(null, "What to do?", "Welcome to Dungeon Delver!", JOptionPane.YES_NO_CANCEL_OPTION, JOptionPane.PLAIN_MESSAGE, null, new String[] {"Load Game","New Game","Quit"}, null);
+					if (result == JOptionPane.YES_OPTION) {
+						JFileChooser fileChooser = new JFileChooser();
+						if (fileChooser.showSaveDialog(null) == JFileChooser.APPROVE_OPTION) {
+							//interpreter.act("load");
+							try {
+								controller.act("load", fileChooser.getSelectedFile().getCanonicalPath());
+							} catch (Exception e) {
+								e.printStackTrace();
+							}
+						}
+						dungeon.repaint();
+						party.repaint();
+					}
+					else if (result == JOptionPane.NO_OPTION) {
+						controller.act("newg");
+						dungeon.repaint();
+						party.repaint();
+					}
+					else if (result == JOptionPane.CANCEL_OPTION) {
+					    WindowEvent wev = new WindowEvent(window, WindowEvent.WINDOW_CLOSING);
+					    Toolkit.getDefaultToolkit().getSystemEventQueue().postEvent(wev);
+					    window.setVisible(false);
+					    window.dispose();
+					    System.exit(0); 
+					}
+				}
+			}
+		};
 		this.party.setBackground(new Color(244,191,66));
-		this.party.setPreferredSize(new Dimension(500,250));
+		this.party.setPreferredSize(new Dimension(480,DRAW_WIDTH));
 		this.party.setBorder(BorderFactory.createLineBorder(Color.BLACK, 2));
 		this.container = new JPanel();
 		this.container.setLayout(new BoxLayout(this.container,BoxLayout.X_AXIS));
@@ -188,24 +283,44 @@ public class DungeonGUI {
 					break;
 				}
 				dungeon.repaint();
+				party.repaint();
 			}
-
 			@Override
 			public void keyReleased(java.awt.event.KeyEvent arg0) {
-				// TODO Auto-generated method stub
-				
 			}
-
 			@Override
 			public void keyTyped(java.awt.event.KeyEvent arg0) {
-				// TODO Auto-generated method stub
-				
 			}
 		});
 		this.window.pack();
 		this.window.setVisible(true);
-	}
-	public void run() {
-		
+		dungeon.repaint();
+		party.repaint();
+		int result = JOptionPane.showOptionDialog(null, "What to do?", "Welcome to Dungeon Delver!", JOptionPane.YES_NO_CANCEL_OPTION, JOptionPane.PLAIN_MESSAGE, null, new String[] {"Load Game","New Game","Quit"}, null);
+		if (result == JOptionPane.YES_OPTION) {
+			JFileChooser fileChooser = new JFileChooser();
+			if (fileChooser.showSaveDialog(null) == JFileChooser.APPROVE_OPTION) {
+				//interpreter.act("load");
+				try {
+					controller.act("load", fileChooser.getSelectedFile().getCanonicalPath());
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+			dungeon.repaint();
+			party.repaint();
+		}
+		else if (result == JOptionPane.NO_OPTION) {
+			controller.act("newg");
+			dungeon.repaint();
+			party.repaint();
+		}
+		else if (result == JOptionPane.CANCEL_OPTION) {
+		    WindowEvent wev = new WindowEvent(this.window, WindowEvent.WINDOW_CLOSING);
+		    Toolkit.getDefaultToolkit().getSystemEventQueue().postEvent(wev);
+		    this.window.setVisible(false);
+		    this.window.dispose();
+		    System.exit(0); 
+		}
 	}
 }

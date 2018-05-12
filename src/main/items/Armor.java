@@ -64,7 +64,6 @@ public class Armor extends Item {
 		this.overrideAttributes = overrideAttributes != null ? overrideAttributes : archetype.getAttributes();
 	}
 	public String getArchetypeName() {return this.archetypeName;}
-	public String getName() {return this.name;}
 	public int getBase() {return this.base;}
 	public int getDexModMin() {return this.dexModMin;}
 	public int getDexModMax() {return this.dexModMax;}

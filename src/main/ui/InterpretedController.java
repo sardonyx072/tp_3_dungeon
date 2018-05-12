@@ -58,7 +58,7 @@ public class InterpretedController extends Controller2 {
 		}
 		if (this.mode == Mode.SIMPLE_INITIATIVE) {
 			this.endTurn();
-			while (this.getCurrentActor().getAllegiance() != Actor.Allegiance.PARTY) {
+			while (this.getPlayer().getHP() > 0 && this.getCurrentActor().getAllegiance() != Actor.Allegiance.PARTY) {
 				this.moveCurrentActor();
 				this.endTurn();
 			}

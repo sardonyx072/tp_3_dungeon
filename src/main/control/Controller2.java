@@ -62,9 +62,11 @@ public class Controller2 {
 	public void moveCurrentActor(Orientation direction) {
 		this.order.get(0).setOrientation(direction);
 		this.dungeon.getCurrentArea().moveActor(this.getCurrentActor().getLocation(), direction);
+		this.nextArea();
 	}
 	public void moveCurrentActor(Point point) {
 		this.moveCurrentActor(Orientation.nearestOrientation(this.getCurrentActor().getLocation(), point));
+		this.nextArea();
 	}
 	public void moveCurrentActor() {
 		List<Area2.OrientedActor> nearestActorsInSight = this.dungeon.getCurrentArea().getCone(this.getCurrentActor().getLocation(), this.getCurrentActor().getOrientation(), 6, false).getActorsNearest(this.getCurrentActor().getLocation(), 1);
@@ -80,8 +82,16 @@ public class Controller2 {
 		}
 		else
 			this.moveCurrentActor(Orientation.random());
+		this.nextArea();
+	}
+	public void nextArea() {
+		if(this.getCurrentActor().getAllegiance() == Actor.Allegiance.PARTY && this.dungeon.moveArea(this.getCurrentActor().getLocation())) {
+			this.getCurrentActor().levelUp();
+			this.rollInitiative();
+		}
 	}
 	public void rollInitiative() {
+		this.order = new ArrayList<Area2.OrientedActor>();
 		List<Check> checks = new ArrayList<Check>();
 		for (Area2.OrientedActor actor : this.dungeon.getCurrentArea().getActorsAll()) {
 			//(Actor origin, Type type, Score.Type checkType, Dice dice, Score.Type contestType, Score.Type saveType)
@@ -96,19 +106,32 @@ public class Controller2 {
 		}
 	}
 	public void attackCurrentActor (Orientation direction) {
-		this.order.get(0).setOrientation(direction);
-		Actor target = this.dungeon.getCurrentArea().getLine(this.order.get(0).getLocation(), this.order.get(0).getOrientation(), 1, this.order.get(0).getMainHand().getRange()/this.dungeon.getCurrentArea().getScale(), false).getActorsNearest(this.order.get(0).getLocation(), 1).get(0);
-		Attack attack = new Attack(this.order.get(0),Roll.Type.NORMAL,this.order.get(0).getMainHand().getScore(),this.mode.getDice(),this.order.get(0).getMainHand().get1HDamage(),null,null);
-		attack.roll();
-		if (attack.getValue() >= target.getArmorClass()) {
-			target.takeDamage(attack.getDamage());
-			if (target.getHP() == 0) {
-				this.order.get(0).getInventory().add(target.unequipArmor());
-				this.order.get(0).getInventory().add(target.unequipMainHand());
-				this.order.get(0).getInventory().add(target.unequipOffHand());
-				this.order.get(0).getInventory().addAll(target.getInventory());
-				this.order.remove(this.order.indexOf(target));
-				this.dungeon.getCurrentArea().removeActor(this.dungeon.getCurrentArea().getLocationOfActor(target));
+		Area2.OrientedActor current = this.getCurrentActor();
+		current.setOrientation(direction);
+		System.out.println(current.getActorRace() + " " + current.getActorClass() + " chose to attack " + direction.toString());
+		List<Area2.OrientedActor> actors = this.dungeon.getCurrentArea().getLine(current.getLocation(), current.getOrientation(), 1, current.getMainHand().getRange()/this.dungeon.getCurrentArea().getScale(), false).getActorsNearest(current.getLocation(), 1);
+		if (actors.size() > 0) {
+			Area2.OrientedActor target = actors.get(0);
+			Attack attack = new Attack(this.order.get(0),Roll.Type.NORMAL,this.order.get(0).getMainHand().getScore(),this.mode.getDice(),this.order.get(0).getMainHand().get1HDamage(),null,null);
+			attack.roll();
+			System.out.println("\trolled a " + attack.getValue() + " to hit AC " + target.getArmorClass() + " of target " + target.getActorRace() + " " + target.getActorClass());
+			if (attack.getValue() >= target.getArmorClass()) {
+				System.out.println("\tit hits, target takes " + attack.getDamage().getValue() + " points of " + attack.getDamage().getType() + " damage.");
+				target.takeDamage(attack.getDamage());
+				if (target.getHP() == 0) {
+					if (target.getEquippedArmor() != null)
+						current.getInventory().add(target.unequipArmor());
+					if (target.getEquippedMainHand() != null)
+						current.getInventory().add(target.unequipMainHand());
+					if (target.getEquippedOffHand() != null)
+						current.getInventory().add(target.unequipOffHand());
+					if (target.getInventory().size() > 0) {
+						current.getInventory().addAll(target.getInventory());
+						target.getInventory().removeAll(target.getInventory());
+					}
+					this.order.remove(this.order.indexOf(target));
+					this.dungeon.getCurrentArea().removeActor(target.getLocation());
+				}
 			}
 		}
 		if (this.mode == Mode.SIMPLE_INITIATIVE) {
@@ -135,6 +158,8 @@ public class Controller2 {
 	public void newGame() {
 		System.out.println("----------------------------------- starting a new game ----------------------------------");
 		Actor player = new Actor(CreatureRace.HUMAN, CreatureClass.FIGHTER, Score.getScores());
+		player.equipArmor(Armor.Archetype.LEATHER.create());
+		player.equipMainHand(Weapon.Archetype.LONGSWORD.create());
 		player.setAllegiance(Actor.Allegiance.PARTY);
 		this.dungeon = new Dungeon();
 		Dungeon.LinkedArea previousArea = null;

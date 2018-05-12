@@ -18,5 +18,8 @@ public class Dice implements Rollable, Cloneable, Serializable {
 	}
 	public Die[] getDie() {return this.dice.clone();}
 	// public void crunch(); compress random dice into a single random die using convolution
+	public int getMinValue() {return Stream.of(this.dice).mapToInt(die -> die.getMinValue()).sum();}
+	public int getMaxValue() {return Stream.of(this.dice).mapToInt(die -> die.getMaxValue()).sum();}
 	public Dice clone() {return new Dice(Stream.of(this.dice).map(die -> die.clone()).toArray(Die[]::new));}
+	public String toString() {return String.format("%d - %d", this.getMinValue(), this.getMaxValue());}
 }

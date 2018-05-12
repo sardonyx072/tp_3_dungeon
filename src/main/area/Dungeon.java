@@ -51,7 +51,8 @@ public class Dungeon implements Serializable {
 			this.currentArea = area;
 		this.areas.add(area);
 	}
-	public void moveArea(Point point) {
+	public boolean moveArea(Point point) {
+		boolean linked = false;
 		AreaLink link = this.currentArea.getLink(point);
 		if (link != null) {
 			Area2.OrientedActor actor = this.currentArea.removeActor(point);
@@ -59,8 +60,10 @@ public class Dungeon implements Serializable {
 				actor.setLocation(link.toPoint);
 				link.toArea.addActor(actor);
 				this.currentArea = link.toArea;
+				linked = true;
 			}
 		}
+		return linked;
 	}
 	public Area2.OrientedTerrain getTerrain(Point point) {
 		return this.currentArea.getTerrain(point);

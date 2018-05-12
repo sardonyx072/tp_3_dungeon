@@ -96,7 +96,7 @@ public class Area2 {
 		return unoccupied.toArray(new Point[unoccupied.size()])[ThreadLocalRandom.current().nextInt(unoccupied.size())];
 	}
 	public Area2 getLine(Point origin, Orientation direction, int length, int width, boolean includeOrigin) {
-		Shape line = AffineTransform.getRotateInstance(Math.toRadians(direction.getBearing()+180),origin.x+0.5,origin.y+0.5).createTransformedShape(new Rectangle(origin.x-(width/2),origin.y,width,length));
+		Shape line = AffineTransform.getRotateInstance(Math.toRadians(direction.getBearing()+180),origin.x,origin.y).createTransformedShape(new Rectangle(origin.x-(width/2),origin.y,width,length));
 		HashMap<Point,OrientedTerrain> terrainWithin = new HashMap<Point,OrientedTerrain>();
 		HashMap<Point,OrientedActor> actorsWithin = new HashMap<Point,OrientedActor>();
 		Rectangle bound = line.getBounds();
@@ -116,7 +116,7 @@ public class Area2 {
 		return result;
 	}
 	public Area2 getCone(Point origin, Orientation direction, int length, boolean includeOrigin) {
-		Shape cone = AffineTransform.getRotateInstance(Math.toRadians(direction.getBearing()+180),origin.x+0.5,origin.y+0.5).createTransformedShape(new Ellipse2D.Float(origin.x-length,origin.y-length,2*length,2*length));
+		Shape cone = AffineTransform.getRotateInstance(Math.toRadians(direction.getBearing()+180),origin.x,origin.y).createTransformedShape(new Ellipse2D.Float(origin.x-length,origin.y-length,2*length,2*length));
 		HashMap<Point,OrientedTerrain> terrainWithin = new HashMap<Point,OrientedTerrain>();
 		HashMap<Point,OrientedActor> actorsWithin = new HashMap<Point,OrientedActor>();
 		Rectangle bound = cone.getBounds();
@@ -136,7 +136,7 @@ public class Area2 {
 		return result;
 	}
 	public Area2 getCircle(Point origin, int radius, boolean includeOrigin) {
-		Shape circle = AffineTransform.getRotateInstance(0,origin.x+0.5,origin.y+0.5).createTransformedShape(new Ellipse2D.Float(origin.x-radius,origin.y-radius,2*radius,2*radius));
+		Shape circle = AffineTransform.getRotateInstance(0,origin.x,origin.y).createTransformedShape(new Ellipse2D.Float(origin.x-radius,origin.y-radius,2*radius,2*radius));
 		HashMap<Point,OrientedTerrain> terrainWithin = new HashMap<Point,OrientedTerrain>();
 		HashMap<Point,OrientedActor> actorsWithin = new HashMap<Point,OrientedActor>();
 		Rectangle bound = circle.getBounds();
@@ -200,7 +200,7 @@ public class Area2 {
 		this.actor.put(actor.getLocation(), actor);
 	}
 	public OrientedActor removeActor(Point point) {
-		return this.actor.get(point);
+		return this.actor.remove(point);
 	}
 	public OrientedTerrain getTerrain(Point point) {
 		return this.terrain.get(point);

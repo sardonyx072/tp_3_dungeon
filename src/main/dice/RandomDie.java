@@ -19,6 +19,24 @@ public class RandomDie extends Die {
 		}
 	}
 	public int getValue() {return this.value;}
+	public int getMinValue() {
+		int min = 0;
+		for (int i = 0; i < this.values.length; i++)
+			if (this.values[i] > 0) {
+				min = i;
+				break;
+			}
+		return min;
+	}
+	public int getMaxValue() {
+		int max = 0;
+		for (int i = this.values.length-1; i >= 0; i--)
+			if (this.values[i] > 0) {
+				max = i;
+				break;
+			}
+		return max;
+	}
 	@Override
 	public RandomDie clone() {
 		RandomDie dup = new RandomDie(this.values.clone());

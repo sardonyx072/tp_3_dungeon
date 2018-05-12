@@ -51,9 +51,9 @@ public class Actor implements Serializable {
 		// TODO needs to sort scores for class
 		for(Score.Type type : Score.Type.values())
 			this.scores.put(type,new Score(type,scores.get(type).getValue()+Optional.ofNullable(this.actorRace.getScoreIncreases().get(type)).orElse(0)));
-		this.armor = Armor.Archetype.UNARMORED.create();
-		this.mainHand = Weapon.Archetype.UNARMED.create();
-		this.offHand = Weapon.Archetype.UNARMED.create();
+		this.armor = null;
+		this.mainHand = null;
+		this.offHand = null;
 		this.accessory1 = null;
 		this.accessory2 = null;
 		this.accessory3 = null;
@@ -94,30 +94,33 @@ public class Actor implements Serializable {
 		this.damage += amount-tempLost;
 	}
 	public int getSpeed() {return this.actorRace.getSpeed();}
-	public int getArmorClass() {return this.armor.getBase() + Math.min(this.armor.getDexModMax(), Math.max(this.armor.getDexModMin(), this.getModifier(Score.Type.DEXTERITY)));}
+	public int getArmorClass() {return this.getArmor().getBase() + Math.min(this.getArmor().getDexModMax(), Math.max(this.getArmor().getDexModMin(), this.getModifier(Score.Type.DEXTERITY)));}
 	public int getDifficultyClass() {return 8+this.getProficiency()+this.getModifier(this.actorClass.getSaveScore());}
 	public int getAttackModifier(Score.Type type) {return this.getModifier(type) + (Arrays.asList(this.actorClass.getAttackProficiencies()).contains(type) ? this.getProficiency() : 0);}
 	public int getSaveModifier(Score.Type type) {return this.getModifier(type) + (Arrays.asList(this.actorClass.getSaveProficiencies()).contains(type) ? this.getProficiency() : 0);}
 	public int getCheckModifier(Score.Type type) {return this.getModifier(type) + (Arrays.asList(this.actorClass.getCheckProficiencies()).contains(type) ? this.getProficiency() : 0);}
-	public Armor getArmor() {return this.armor;}
+	public Armor getArmor() {return Optional.ofNullable(this.armor).orElse(Armor.Archetype.UNARMORED.create());}
+	public Armor getEquippedArmor() {return this.armor;}
 	public void equipArmor(Armor armor) {this.armor = this.armor==null && Arrays.asList(this.actorClass.getArmorTypes()).contains(armor.getType()) ? armor : this.armor;}
 	public Armor unequipArmor() {
 		Armor armor = this.armor;
-		this.armor = Armor.Archetype.UNARMORED.create();
+		this.armor = null;
 		return armor;
 	}
-	public Weapon getMainHand() {return this.mainHand;}
+	public Weapon getMainHand() {return Optional.ofNullable(this.mainHand).orElse(Weapon.Archetype.UNARMED.create());}
+	public Weapon getEquippedMainHand() {return this.mainHand;}
 	public void equipMainHand (Weapon weapon) {this.mainHand = this.mainHand==null && Arrays.asList(this.actorClass.getWeaponTypes()).contains(weapon.getType()) ? weapon : this.mainHand;}
 	public Weapon unequipMainHand() {
 		Weapon weapon = this.mainHand;
-		this.mainHand = Weapon.Archetype.UNARMED.create();
+		this.mainHand = null;
 		return weapon;
 	}
-	public Weapon getOffhand() {return this.offHand;}
+	public Weapon getOffhand() {return Optional.ofNullable(this.offHand).orElse(Weapon.Archetype.UNARMED.create());}
+	public Weapon getEquippedOffHand() {return this.offHand;}
 	public void equipOffHand (Weapon weapon) {this.offHand = this.offHand==null && Arrays.asList(this.actorClass.getWeaponTypes()).contains(weapon.getType()) ? weapon : this.offHand;}
 	public Weapon unequipOffHand() {
 		Weapon weapon = this.offHand;
-		this.offHand = Weapon.Archetype.UNARMED.create();
+		this.offHand = null;
 		return weapon;
 	}
 	public Accessory getAccessory1() {return this.accessory1;}
