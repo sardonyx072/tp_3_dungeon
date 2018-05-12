@@ -19,9 +19,7 @@ import main.actor.Actor;
 import main.actor.CreatureClass;
 import main.actor.CreatureRace;
 import main.actor.Score;
-import main.area.BackdropElement;
 import main.area.MovementType;
-import main.area.World;
 import main.dice.Dice;
 import main.dice.Die;
 
